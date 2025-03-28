@@ -184,12 +184,12 @@
         data: {
           labels: ["Jan", "Feb", "Mar", "Apr", "May"],
           datasets: [{
-              label: 'Offline Sales',
+              label: 'Present',
               data: [480, 230, 470, 210, 330],
               backgroundColor: '#98BDFF'
             },
             {
-              label: 'Online Sales',
+              label: 'Absent',
               data: [400, 340, 550, 480, 170],
               backgroundColor: '#4B49AC'
             }
@@ -259,12 +259,12 @@
         data: {
           labels: ["Jan", "Feb", "Mar", "Apr", "May"],
           datasets: [{
-              label: 'Offline Sales',
+              label: 'Present',
               data: [480, 230, 470, 210, 330],
               backgroundColor: '#98BDFF'
             },
             {
-              label: 'Online Sales',
+              label: 'Absent',
               data: [400, 340, 550, 480, 170],
               backgroundColor: '#4B49AC'
             }
