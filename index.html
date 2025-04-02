@@ -44,32 +44,38 @@
                             <i class='bx bx-user'></i>
                         </a>
                     </li>
-
                 </ul>
             </div>
         </nav>
     </header>
 
+    <!-- Login Modal (Hidden by Default) -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span> <!-- Close Button -->
+            <img src="../images/LOGO PSEJ.png" alt="PSEJ CHURCH" class="logo">
+            <h2>Sign in to Your Account</h2>
+            <p>Enter your credentials to access your dashboard.</p>
+            <form id="login-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <div class="options">
+                    <a href="#">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
     <main class="l-main">
         <!--===== HOME =====-->
         <section class="home" id="home">
             <div class="home__container bd-grid">
-                <div id="home-image-container" class="home__img">
-                    <!-- Images -->
+                <div class="home__img">
                     <img src="landingpage/assets/img/cross.png" alt="Cross" data-speed="2" class="move cross">
                     <img src="landingpage/assets/img/bible.png" alt="Bible" data-speed="-2" class="move bible">
-
-                    <!-- Login Card (Initially Hidden) -->
-                    <div id="login-card" class="login-card" style="display: none;">
-                        <div class="login-card__container">
-                            <h2>Login</h2>
-                            <form>
-                                <input type="text" placeholder="Username" required>
-                                <input type="password" placeholder="Password" required>
-                                <button type="submit">Login</button>
-                            </form>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="home__data">

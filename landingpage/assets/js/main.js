@@ -37,23 +37,44 @@ gsap.from('.home__description', {opacity: 0, duration: 1, delay:1.8, y: 30})
 gsap.from('.home__button', {opacity: 0, duration: 1, delay:2.1, y: 30})
 gsap.from('.home__img', {opacity: 0, duration: 1, delay:1.3, y: 30})
 
-document.getElementById('login-icon').addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent the default link action
+// Get modal elements
+const modal = document.getElementById('login-modal');
+const loginIcon = document.getElementById('login-icon');
+const closeBtn = document.querySelector('.close');
 
-    var imageContainer = document.getElementById('home-image-container');
-    var loginCard = document.getElementById('login-card');
-    
-    // Check if the login card is visible or not
-    if (loginCard.style.display === 'none') {
-        // Show the login card and hide the images
-        loginCard.style.display = 'block';
-        imageContainer.querySelector('.cross').style.display = 'none';
-        imageContainer.querySelector('.bible').style.display = 'none';
-    } else {
-        // Show the images and hide the login card
-        loginCard.style.display = 'none';
-        imageContainer.querySelector('.cross').style.display = 'block';
-        imageContainer.querySelector('.bible').style.display = 'block';
+// Show modal when login icon is clicked
+loginIcon.addEventListener('click', function (event) {
+    event.preventDefault();
+    modal.style.display = 'flex';
+});
+
+// Close modal when clicking outside of it
+window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
+});
+
+// Close modal when clicking the "X" button
+closeBtn.addEventListener('click', function () {
+    modal.style.display = 'none';
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("login-form");
+
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent page refresh
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Simple login check (Replace this with actual authentication later)
+        if (username === "admin" && password === "password") {  
+            window.location.href = "../maindash.html"; // Redirect to dashboard
+        } else {
+            alert("Invalid username or password!"); // Show error message
+        }
+    });
 });
 
