@@ -2,80 +2,181 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PSEJ Church</title>
-  <link rel="stylesheet" href="landingpage/assets/css/style.css" />
-  <link rel="shortcut icon" href="images/310286134_472232338262120_8200834290501148364_n-removebg-preview.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =====BOX ICONS===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="landingpage/assets/css/styles.css">
+    <link rel="shortcut icon" href="images/logo.png" />
+
+    <title>PSEJ Church</title>
 </head>
 
 <body>
-  <main>
-    <div class="big-wrapper light">
-      <img src="landingpage/assets/img/shape.png" alt="" class="shape" />
-
-      <header>
-        <div class="container">
-          <div class="logo">
-            <img src="images/LOGO PSEJ.png" alt="Logo" />
-          </div>
-
-          <div class="links">
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Location</a></li>
-              <li><a href="#">Prayer Request</a></li>
-              <li><a href="#">Events</a></li>
-              <li><a href="#" class="btn">Login</a></li>
-            </ul>
-          </div>
-
-          <div class="overlay"></div>
-
-          <div class="hamburger-menu">
-            <div class="bar"></div>
-          </div>
-        </div>
-      </header>
-
-      <div class="showcase-area">
-        <div class="container">
-          <div class="left">
-            <div class="big-title">
-              <h1>Welcome to PSEJ Church,</h1>
-              <h2>Join us in faith and service.</h2>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#home" class="nav__logo">
+                    <img src="../images/LOGO PSEJ.png" alt="PSEJ LOGO">
+                </a>
             </div>
-            <p class="text">
-              Strengthen your faith, connect with the community, and grow spiritually with us.
-            </p>
-            <div class="cta">
-              <a href="#" class="btn">Get Started</a>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
             </div>
-          </div>
 
-          <div class="right">
-            <img src="landingpage/assets/img/person.png" alt="Person Image" class="person" />
-          </div>
-        </div>
-      </div>
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
 
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#location" class="nav__link">Location</a></li>
+                    <li class="nav__item"><a href="#event" class="nav__link">Events</a></li>
+                    <li class="nav__item"><a href="#supplication" class="nav__link">Supplication</a></li>
+                    <li class="nav__item">
+                        <a href="#" id="login-icon" class="nav__link">
+                            <i class='bx bx-user'></i>
+                        </a>
+                    </li>
 
-      <div class="bottom-area">
-        <div class="container">
-          <button class="toggle-btn">
-            <i class="far fa-moon"></i>
-            <i class="far fa-sun"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </main>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-  <!-- JavaScript Files -->
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home" id="home">
+            <div class="home__container bd-grid">
+                <div id="home-image-container" class="home__img">
+                    <!-- Images -->
+                    <img src="landingpage/assets/img/cross.png" alt="Cross" data-speed="2" class="move cross">
+                    <img src="landingpage/assets/img/bible.png" alt="Bible" data-speed="-2" class="move bible">
 
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  <script src="landingpage/assets/js/app.js"></script>
+                    <!-- Login Card (Initially Hidden) -->
+                    <div id="login-card" class="login-card" style="display: none;">
+                        <div class="login-card__container">
+                            <h2>Hello! let's get started</h2>
+                            <form>
+                                <input type="text" placeholder="Username" required>
+                                <input type="password" placeholder="Password" required>
+                                <div class="options">
+                                    <label><input type="checkbox"> Keep me Login</label>
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                                <button type="submit">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home__data">
+                    <h3 class="home__title">Welcome to<br> PSEJ Church</h3>
+                    <p class="home__description">Join us in faith, worship, and community <br> as we grow spiritually
+                        together.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section nav__item" id="about">
+            <div class="bd-grid about__container">
+                <img src="landingpage/assets/img/about.png" alt="Church Image" class="about__img">
+                <div class="about__content">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="section-description">
+                        PSEJ Church is dedicated to bringing people together in faith, love, and service. Our mission is
+                        to spread the word of God and create a strong spiritual community.
+                    </p>
+                    <div class="about__btn-container">
+                        <a href="landingpage/pages/about.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== LOCATION =====-->
+        <section class="location section" id="location">
+            <div class="bd-grid">
+                <h2 class="section-title">Our Location</h2>
+                <p class="section-description">We are located at [Insert Address Here]. Come and visit us for worship
+                    services, events, and community gatherings.</p>
+            </div>
+        </section>
+
+        <!--===== EVENTS =====-->
+        <section class="event section" id="event">
+            <div class="bd-grid">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-description">Stay updated with our latest church events, gatherings, and special
+                    services. Join us and be part of our growing community.</p>
+            </div>
+        </section>
+
+        <!--===== SUPPLICATION =====-->
+        <section class="supplication section" id="supplication">
+            <div class="bd-grid">
+                <h2 class="section-title">Supplication & Prayers</h2>
+                <p class="section-description">Send us your prayer requests, and our church community will lift them up
+                    in prayer.</p>
+            </div>
+        </section>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <div class="footer__container bd-grid">
+                <div class="footer__about">
+                    <h3 class="footer__title">PSEJ Church</h3>
+                    <p class="footer__description">Spreading faith, love, and service to build a strong spiritual
+                        community.</p>
+                </div>
+
+                <div class="footer__links">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" class="footer__link">Home</a></li>
+                        <li><a href="#about" class="footer__link">About</a></li>
+                        <li><a href="#event" class="footer__link">Events</a></li>
+                        <li><a href="#supplication" class="footer__link">Supplication</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__contact">
+                    <h3 class="footer__title">Contact Us</h3>
+                    <p><i class='bx bx-map'></i> [Insert Address Here]</p>
+                    <p><i class='bx bx-phone'></i> +123 456 7890</p>
+                    <p><i class='bx bx-envelope'></i> contact@psejchurch.org</p>
+                </div>
+
+                <div class="footer__social">
+                    <h3 class="footer__title">Follow Us</h3>
+                    <div class="footer__social-links">
+                        <a href="#" class="footer__social-icon"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="footer__social-icon"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="footer__social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="footer__social-icon"><i class='bx bxl-youtube'></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2025 PSEJ Church. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <!--===== GSAP =====-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="landingpage/assets/js/main.js"></script>
 </body>
 
 </html>
