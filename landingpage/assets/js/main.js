@@ -78,3 +78,49 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("login-form");
+    const forgotPasswordForm = document.getElementById("forgot-password-form");
+    const verificationForm = document.getElementById("verification-form");
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
+    const sendCodeButton = document.getElementById("send-code");
+    const verifyCodeButton = document.getElementById("verify-code");
+
+    // When "Forgot Password?" is clicked
+    forgotPasswordLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        loginForm.style.display = "none";
+        forgotPasswordForm.style.display = "block";
+    });
+
+    // When "Send Code" is clicked
+    sendCodeButton.addEventListener("click", function () {
+        const email = document.getElementById("reset-email").value;
+        if (email) {
+            alert("Verification code sent to " + email); // Simulating email send
+            forgotPasswordForm.style.display = "none";
+            verificationForm.style.display = "block";
+        } else {
+            alert("Please enter a valid email.");
+        }
+    });
+
+    // When "Verify" is clicked
+    verifyCodeButton.addEventListener("click", function () {
+        const code = document.getElementById("verification-code").value;
+        if (code === "123456") { // Sample correct code
+            alert("Email verified! You can now login.");
+            
+            // Reset forms and go back to login modal
+            verificationForm.style.display = "none";
+            loginForm.style.display = "block";
+
+            // Clear input fields
+            document.getElementById("reset-email").value = "";
+            document.getElementById("verification-code").value = "";
+        } else {
+            alert("Invalid verification code!");
+        }
+    });
+});
+
