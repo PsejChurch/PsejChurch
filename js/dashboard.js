@@ -182,7 +182,7 @@
       var SalesChart = new Chart(SalesChartCanvas, {
         type: 'bar',
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
           datasets: [{
               label: 'Present',
               data: [480, 230, 470, 210, 330],
@@ -190,7 +190,7 @@
             },
             {
               label: 'Absent',
-              data: [400, 340, 550, 480, 170],
+              data: [400, 340, 50, 480, 170],
               backgroundColor: '#4B49AC'
             }
           ]
@@ -218,10 +218,7 @@
               ticks: {
                 display: true,
                 min: 0,
-                max: 560,
-                callback: function(value, index, values) {
-                  return  value + '$' ;
-                },
+                max: 1000,
                 autoSkip: true,
                 maxTicksLimit: 10,
                 fontColor:"#6C7383"
@@ -257,7 +254,7 @@
       var SalesChart = new Chart(SalesChartCanvas, {
         type: 'bar',
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"],
           datasets: [{
               label: 'Present',
               data: [480, 230, 470, 210, 330],

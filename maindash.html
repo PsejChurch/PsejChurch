@@ -310,7 +310,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="maindash.html">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -338,14 +338,20 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 1</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 2</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 3</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 4</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 5</a></li>
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Chapter 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Poblacion Plaridel</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Sipat Plaridel</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Banga 1st</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">San Antonio NE</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">San Leonardo NE</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">R10 Tondo</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Cavite</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Galas Balagtas</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">San Jose Plaridel</a>
+                </li>
               </ul>
             </div>
+
           </li>
 
           <!-- <li class="nav-item">
@@ -425,7 +431,7 @@
           </li> -->
           <li class="nav-item">
             <a class="nav-link" href="pages/settings.html">
-              <i class="icon-setting menu-icon"></i>
+              <i class="ti-settings menu-icon"></i>
               <span class="menu-title">Settings</span>
             </a>
           </li>
@@ -444,7 +450,7 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome Giff</h3>
+                  <h3 class="font-weight-bold">Welcome Admin</h3>
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
                       class="text-primary">3 unread alerts!</span></h6>
                 </div>
@@ -483,91 +489,99 @@
 
             <div class="col-md-6 grid-margin transparent">
               <div class="row">
+                <!-- Today's Total Attendance -->
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
                     <div class="card-body">
-                      <p class="mb-4">Today’s Attendance</p>
-                      <p class="fs-30 mb-2">4006</p>
+                      <p class="mb-4">Today's Total Attendance (All Chapters)</p>
+                      <p class="fs-30 mb-2">4,006</p>
                       <p>10.00% (30 days)</p>
                     </div>
                   </div>
                 </div>
+
+                <!-- Overall Total Attendance -->
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
                     <div class="card-body">
-                      <p class="mb-4">Total Attendance</p>
-                      <p class="fs-30 mb-2">61344</p>
+                      <p class="mb-4">Overall Total Attendance (All Chapters)</p>
+                      <p class="fs-30 mb-2">61,344</p>
                       <p>22.00% (30 days)</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="row">
+                <!-- Total Number of Events -->
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
                     <div class="card-body">
-                      <p class="mb-4">Number of Events</p>
-                      <p class="fs-30 mb-2">34040</p>
+                      <p class="mb-4">Total Number of Events (All Chapters)</p>
+                      <p class="fs-30 mb-2">34,040</p>
                       <p>2.00% (30 days)</p>
                     </div>
                   </div>
                 </div>
+
+                <!-- Total Number of Members -->
                 <div class="col-md-6 stretch-card transparent">
                   <div class="card card-light-danger">
                     <div class="card-body">
-                      <p class="mb-4">Number of Members</p>
-                      <p class="fs-30 mb-2">47033</p>
+                      <p class="mb-4">Total Number of Members (All Chapters)</p>
+                      <p class="fs-30 mb-2">47,033</p>
                       <p>0.22% (30 days)</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
           <div class="row">
             <!-- Events Table -->
-<div class="col-md-6 grid-margin stretch-card">
-  <div class="card">
-    <div class="card-body">
-      <p class="card-title">Events Per Chapter</p>
-      <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
-        <table class="table" id="eventsTable">
-          <thead>
-            <tr>
-              <th>Chapter</th>
-              <th>Event Name</th>
-              <th>Date & Time</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-chapter="Chapter 1" data-name="Sunday Worship"
-              data-description="A time of worship and prayer." data-datetime="2025-03-31T10:00" data-fee="0"
-              data-poster="poster1.jpg">
-              <td>Chapter 1</td>
-              <td>Sunday Worship</td>
-              <td>March 31, 2025 - 10:00 AM</td>
-              <td>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewEventModal"
-                  onclick="openViewModal(this)">View</button>
-                <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editEventModal"
-                  onclick="openEditModal(this)">Edit</button>
-                <button class="btn btn-danger btn-sm" onclick="archiveEvent(this)">Archive</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <p class="card-title">Events Per Chapter</p>
+                  <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                    <table class="table" id="eventsTable">
+                      <thead>
+                        <tr>
+                          <th>Chapter</th>
+                          <th>Event Name</th>
+                          <th>Date & Time</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr data-chapter="Chapter 1" data-name="Sunday Worship"
+                          data-description="A time of worship and prayer." data-datetime="2025-03-31T10:00" data-fee="0"
+                          data-poster="poster1.jpg">
+                          <td>Chapter 1</td>
+                          <td>Sunday Worship</td>
+                          <td>March 31, 2025 - 10:00 AM</td>
+                          <td>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewEventModal"
+                              onclick="openViewModal(this)">View</button>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editEventModal"
+                              onclick="openEditModal(this)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="archiveEvent(this)">Archive</button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
 
-    <!-- Button for Adding Event -->
-    <div class="d-flex justify-content-end p-3">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
-        Add Event
-      </button>
-    </div>
-  </div>
-</div>
+                <!-- Button for Adding Event -->
+                <div class="d-flex justify-content-end p-3">
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
+                    Add Event
+                  </button>
+                </div>
+              </div>
+            </div>
 
             <!-- View Event Modal -->
             <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel"
@@ -585,7 +599,7 @@
                       <div class="col-md-6">
                         <img id="viewEventImage" src="images/poster.png" alt="Event Image" class="img-fluid rounded">
                       </div>
-                     <div class="col-md-6">
+                      <div class="col-md-6">
                         <form>
                           <div class="form-group">
                             <label>Chapter</label>
@@ -627,7 +641,8 @@
                       <div class="col-md-6">
                         <label for="editEventImage">Change Image</label>
                         <input type="file" class="form-control-file" id="editEventImage" accept="image/*">
-                        <img id="previewEditImage" src="images/poster.png" alt="Event Image" class="img-fluid rounded mt-2">
+                        <img id="previewEditImage" src="images/poster.png" alt="Event Image"
+                          class="img-fluid rounded mt-2">
                       </div>
                       <div class="col-md-6">
                         <form id="editEventForm">
@@ -779,7 +794,7 @@
                                 <div class="table-responsive mb-3 mb-md-0 mt-3">
                                   <table class="table table-borderless report-table">
                                     <tr>
-                                      <td class="text-muted">Chapter 1</td>
+                                      <td class="text-muted">Poblacion Plaridel</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
@@ -791,7 +806,7 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 2</td>
+                                      <td class="text-muted">Sipat Plaridel</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-warning" role="progressbar" style="width: 30%"
@@ -803,7 +818,7 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 3</td>
+                                      <td class="text-muted">Banga 1st</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-danger" role="progressbar" style="width: 95%"
@@ -815,7 +830,7 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 4</td>
+                                      <td class="text-muted">San Antonio NE</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-info" role="progressbar" style="width: 60%"
@@ -827,7 +842,7 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 5</td>
+                                      <td class="text-muted">San Leonardo NE</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-primary" role="progressbar" style="width: 40%"
@@ -839,7 +854,43 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 6</td>
+                                      <td class="text-muted">R10 Tondo</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
+                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">793</h5>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-muted">Cavite</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
+                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">793</h5>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-muted">Galas Balagtas</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
+                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">793</h5>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-muted">San Jose Plaridel</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
                                           <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
@@ -878,11 +929,10 @@
                                 <div class="table-responsive mb-3 mb-md-0 mt-3">
                                   <table class="table table-borderless report-table">
                                     <tr>
-                                      <td class="text-muted">Chapter 1</td>
+                                      <td class="text-muted">Poblacion Plaridel</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-primary" role="progressbar" style="width: 70%"
-                                            aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
@@ -890,11 +940,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 2</td>
+                                      <td class="text-muted">Sipat Plaridel</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-warning" role="progressbar" style="width: 30%"
-                                            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
@@ -902,11 +951,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 3</td>
+                                      <td class="text-muted">Banga 1st</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 95%"
-                                            aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
@@ -914,11 +962,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 4</td>
+                                      <td class="text-muted">San Antonio NE</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-info" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
@@ -926,11 +973,10 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 5</td>
+                                      <td class="text-muted">San Leonardo NE</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-primary" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
@@ -938,18 +984,50 @@
                                       </td>
                                     </tr>
                                     <tr>
-                                      <td class="text-muted">Chapter 6</td>
+                                      <td class="text-muted">R10 Tondo</td>
                                       <td class="w-100 px-0">
                                         <div class="progress progress-md mx-4">
-                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
-                                            aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                          <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                       </td>
                                       <td>
                                         <h5 class="font-weight-bold mb-0">793</h5>
                                       </td>
                                     </tr>
-                                  </table>
+                                    <tr>
+                                      <td class="text-muted">Cavite</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">650</h5>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-muted">Galas Balagtas</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">832</h5>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <td class="text-muted">San Jose Plaridel</td>
+                                      <td class="w-100 px-0">
+                                        <div class="progress progress-md mx-4">
+                                          <div class="progress-bar bg-warning" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                      </td>
+                                      <td>
+                                        <h5 class="font-weight-bold mb-0">710</h5>
+                                      </td>
+                                    </tr>
+                                  </table>                                  
                                 </div>
                               </div>
                               <div class="col-md-6 mt-3">
