@@ -23765,6 +23765,14 @@ dl li {
 }
 
 /* Modals */
+.modal-dialog {
+  max-width: 80%; /* Adjust this value as needed */
+}
+
+.card-body {
+  padding-bottom: 20px; /* Dagdag padding sa ilalim ng content */
+}
+
 .modal .modal-dialog {
   margin-top: 100px;
 }

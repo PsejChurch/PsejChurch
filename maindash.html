@@ -29,8 +29,7 @@
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/LOGO PSEJ.png" class="mr-2"
             alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img
-            src="images/logo.png" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -242,8 +241,8 @@
               <p class="text-gray mb-0 ">Call Sarah Graves</p>
             </div>
           </div> -->
-          <!-- To do section tab ends -->
-          <!-- <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+      <!-- To do section tab ends -->
+      <!-- <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
             <div class="d-flex align-items-center justify-content-between border-bottom">
               <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
               <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See
@@ -303,8 +302,8 @@
               </li>
             </ul>
           </div> -->
-          <!-- chat tab ends -->
-        <!-- </div>
+      <!-- chat tab ends -->
+      <!-- </div>
       </div> -->
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
@@ -526,45 +525,147 @@
             </div>
           </div>
           <div class="row">
+            <!-- Events Table -->
             <div class="col-md-6 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Events Per Chapter</p>
-                  <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-                    <table class="table">
+                  <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                    <table class="table" id="eventsTable">
                       <thead>
                         <tr>
                           <th>Chapter</th>
                           <th>Event Name</th>
-                          <th>Date</th>
+                          <th>Date & Time</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
-                      <tbody id="eventsTable">
-                        <tr>
+                      <tbody>
+                        <tr data-chapter="Chapter 1" data-name="Sunday Worship"
+                          data-description="A time of worship and prayer." data-datetime="2025-03-31T10:00" data-fee="0"
+                          data-poster="poster1.jpg">
                           <td>Chapter 1</td>
                           <td>Sunday Worship</td>
-                          <td>March 31, 2025</td>
+                          <td>March 31, 2025 - 10:00 AM</td>
+                          <td>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewEventModal"
+                              onclick="openViewModal(this)">View</button>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editEventModal"
+                              onclick="openEditModal(this)">Edit</button>
+                          </td>
                         </tr>
-                        <tr>
-                          <td>Chapter 2</td>
-                          <td>Bible Study</td>
-                          <td>April 5, 2025</td>
+
+                        <tr data-chapter="Chapter 1" data-name="Sunday Worship"
+                          data-description="A time of worship and prayer." data-datetime="2025-03-31T10:00" data-fee="0"
+                          data-poster="poster1.jpg">
+                          <td>Chapter 1</td>
+                          <td>Sunday Worship</td>
+                          <td>March 31, 2025 - 10:00 AM</td>
+                          <td>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewEventModal"
+                              onclick="openViewModal(this)">View</button>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editEventModal"
+                              onclick="openEditModal(this)">Edit</button>
+                          </td>
                         </tr>
-                        <tr>
-                          <td>Chapter 3</td>
-                          <td>Youth Fellowship</td>
-                          <td>April 12, 2025</td>
+
+                        <tr data-chapter="Chapter 1" data-name="Sunday Worship"
+                          data-description="A time of worship and prayer." data-datetime="2025-03-31T10:00" data-fee="0"
+                          data-poster="poster1.jpg">
+                          <td>Chapter 1</td>
+                          <td>Sunday Worship</td>
+                          <td>March 31, 2025 - 10:00 AM</td>
+                          <td>
+                            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#viewEventModal"
+                              onclick="openViewModal(this)">View</button>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editEventModal"
+                              onclick="openEditModal(this)">Edit</button>
+                          </td>
                         </tr>
+
                       </tbody>
                     </table>
                   </div>
-                
-                  <div class="d-flex justify-content-end">
-                    <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#addEventModal">
-                      Add Event
+                </div>
+
+                <!-- Button for Adding Event -->
+                <div class="d-flex justify-content-end p-3">
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
+                    Add Event
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- View Event Modal -->
+            <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="viewEventModalLabel">Event Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <img id="viewEventImage" src="" alt="Event Image" class="img-fluid rounded">
+                      </div>
+                      <div class="col-md-6">
+                        <p><strong>Chapter:</strong> <span id="viewChapter"></span></p>
+                        <p><strong>Event Name:</strong> <span id="viewEventName"></span></p>
+                        <p><strong>Date & Time:</strong> <span id="viewEventDateTime"></span></p>
+                        <p><strong>Description:</strong> <span id="viewEventDescription"></span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Edit Event Modal -->
+            <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="editEventModalLabel">Edit Event</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="editEventImage">Change Image</label>
+                        <input type="file" class="form-control-file" id="editEventImage" accept="image/*">
+                        <img id="previewEditImage" src="" alt="Event Image" class="img-fluid rounded mt-2">
+                      </div>
+                      <div class="col-md-6">
+                        <form id="editEventForm">
+                          <div class="form-group">
+                            <label for="editChapter">Chapter</label>
+                            <input type="text" class="form-control" id="editChapter" readonly>
+                          </div>
+                          <div class="form-group">
+                            <label for="editEventName">Event Name</label>
+                            <input type="text" class="form-control" id="editEventName">
+                          </div>
+                          <div class="form-group">
+                            <label for="editEventDateTime">Date & Time</label>
+                            <input type="datetime-local" class="form-control" id="editEventDateTime">
+                          </div>
+                          <div class="form-group">
+                            <label for="editEventDescription">Description</label>
+                            <textarea class="form-control" id="editEventDescription" rows="3"></textarea>
+                          </div>
+                          <button type="button" class="btn btn-primary" onclick="saveEditEvent()">Save Changes</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -572,7 +673,7 @@
             <!-- Add Event Modal -->
             <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog" aria-labelledby="addEventModalLabel"
               aria-hidden="true">
-              <div class="modal-dialog" role="document">
+              <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
@@ -582,24 +683,51 @@
                   </div>
                   <div class="modal-body">
                     <form id="eventForm">
-                      <div class="form-group">
-                        <label for="eventChapter">Chapter</label>
-                        <select class="form-control" id="eventChapter">
-                          <option value="Chapter 1">Chapter 1</option>
-                          <option value="Chapter 2">Chapter 2</option>
-                          <option value="Chapter 3">Chapter 3</option>
-                          <option value="Chapter 4">Chapter 4</option>
-                          <option value="Chapter 5">Chapter 5</option>
-                          <option value="Chapter 6">Chapter 6</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="eventTitle">Event Title</label>
-                        <input type="text" class="form-control" id="eventTitle" placeholder="Enter event title">
-                      </div>
-                      <div class="form-group">
-                        <label for="eventDateTime">Event Date & Time</label>
-                        <input type="datetime-local" class="form-control" id="eventDateTime">
+                      <div class="row">
+                        <!-- Left Column -->
+                        <div class="col-md-6 mb-4">
+                          <div class="form-group">
+                            <label for="eventPoster">Add Poster</label>
+                            <input type="file" class="form-control-file" id="eventPoster" accept="image/*">
+                          </div>
+                          <div class="form-group">
+                            <label for="eventChapter">Chapter</label>
+                            <select class="form-control" id="eventChapter">
+                              <option value="Chapter 1">Chapter 1</option>
+                              <option value="Chapter 2">Chapter 2</option>
+                              <option value="Chapter 3">Chapter 3</option>
+                              <option value="Chapter 4">Chapter 4</option>
+                              <option value="Chapter 5">Chapter 5</option>
+                              <option value="Chapter 6">Chapter 6</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="eventTitle">Event Title</label>
+                            <input type="text" class="form-control" id="eventTitle" placeholder="Enter event title">
+                          </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="col-md-6 mb-4">
+                          <div class="form-group">
+                            <label for="eventDescription">Event Description</label>
+                            <textarea class="form-control" id="eventDescription" rows="4"
+                              placeholder="Enter event description"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="eventDateTime">Event Date & Time</label>
+                            <input type="datetime-local" class="form-control" id="eventDateTime">
+                          </div>
+                          <div class="form-group">
+                            <label for="eventFee">Event Fee (if applicable)</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text">₱</span>
+                              </div>
+                              <input type="number" class="form-control" id="eventFee"
+                                placeholder="Enter fee (0 if free)">
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </form>
                   </div>
@@ -999,6 +1127,8 @@
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
+
+
   <!-- End custom js for this page-->
 </body>
 

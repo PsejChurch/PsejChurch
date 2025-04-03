@@ -679,3 +679,67 @@ $('#example tbody').on('click', 'td.details-control', function () {
   
   });
 })(jQuery);
+
+document.getElementById('saveEvent').addEventListener('click', function() {
+  // Get values from form
+  const eventTitle = document.getElementById('eventTitle').value;
+  const eventChapter = document.getElementById('eventChapter').value;
+  const eventDescription = document.getElementById('eventDescription').value;
+  const eventDateTime = document.getElementById('eventDateTime').value;
+  const eventFee = document.getElementById('eventFee').value;
+
+  // Add event to the table
+  const tableBody = document.getElementById('eventsTable');
+  const newRow = document.createElement('tr');
+
+  const chapterCell = document.createElement('td');
+  chapterCell.textContent = eventChapter;
+  newRow.appendChild(chapterCell);
+
+  const eventNameCell = document.createElement('td');
+  eventNameCell.textContent = eventTitle;
+  newRow.appendChild(eventNameCell);
+
+  const dateCell = document.createElement('td');
+  dateCell.textContent = new Date(eventDateTime).toLocaleString();
+  newRow.appendChild(dateCell);
+
+  tableBody.appendChild(newRow);
+
+  // Close modal
+  $('#addEventModal').modal('hide');
+  
+  // Clear form
+  document.getElementById('eventForm').reset();
+});
+
+function openViewModal(button) {
+  let row = button.closest("tr");
+  
+  document.getElementById("viewChapter").innerText = row.dataset.chapter;
+  document.getElementById("viewEventName").innerText = row.dataset.name;
+  document.getElementById("viewEventDescription").innerText = row.dataset.description;
+  document.getElementById("viewEventDateTime").innerText = row.dataset.datetime;
+  document.getElementById("viewEventFee").innerText = row.dataset.fee ? "₱" + row.dataset.fee : "Free";
+
+  let poster = document.getElementById("viewEventPoster");
+  poster.src = row.dataset.poster || "default-placeholder.jpg";
+}
+
+function openEditModal(button) {
+  let row = button.closest("tr");
+
+  document.getElementById("editChapter").value = row.dataset.chapter;
+  document.getElementById("editEventName").value = row.dataset.name;
+  document.getElementById("editEventDescription").value = row.dataset.description;
+  document.getElementById("editEventDateTime").value = formatDateTime(row.dataset.datetime);
+  document.getElementById("editEventFee").value = row.dataset.fee;
+
+  let poster = document.getElementById("editEventPoster");
+  poster.src = row.dataset.poster || "default-placeholder.jpg";
+}
+
+function formatDateTime(dateTimeString) {
+  let date = new Date(dateTimeString);
+  return date.toISOString().slice(0, 16);
+}
