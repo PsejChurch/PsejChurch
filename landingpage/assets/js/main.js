@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Simple login check (Replace this with actual authentication later)
         if (username === "admin" && password === "password") {  
-            window.location.href = "../maindash.html"; // Redirect to dashboard
+            window.location.href = "maindash.html"; // Redirect to dashboard
         } else {
             alert("Invalid username or password!"); // Show error message
         }
