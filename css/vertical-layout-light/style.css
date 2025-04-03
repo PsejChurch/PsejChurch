@@ -23766,7 +23766,7 @@ dl li {
 
 /* Modals */
 .modal-dialog {
-  max-width: 80%; /* Adjust this value as needed */
+  max-width: 50%; /* Adjust this value as needed */
 }
 
 .card-body {

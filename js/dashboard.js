@@ -680,37 +680,104 @@ $('#example tbody').on('click', 'td.details-control', function () {
   });
 })(jQuery);
 
-document.getElementById('saveEvent').addEventListener('click', function() {
+document.getElementById('saveEvent').addEventListener('click', function () {
   // Get values from form
   const eventTitle = document.getElementById('eventTitle').value;
   const eventChapter = document.getElementById('eventChapter').value;
   const eventDescription = document.getElementById('eventDescription').value;
   const eventDateTime = document.getElementById('eventDateTime').value;
-  const eventFee = document.getElementById('eventFee').value;
+  const eventFee = document.getElementById('eventFee').value || "0";
 
   // Add event to the table
-  const tableBody = document.getElementById('eventsTable');
+  const tableBody = document.getElementById('eventsTable').querySelector('tbody');
   const newRow = document.createElement('tr');
 
-  const chapterCell = document.createElement('td');
-  chapterCell.textContent = eventChapter;
-  newRow.appendChild(chapterCell);
+  newRow.innerHTML = `
+      <td>${eventChapter}</td>
+      <td>${eventTitle}</td>
+      <td>${new Date(eventDateTime).toLocaleString()}</td>
+      <td>
+          <button class="btn btn-info btn-sm view-btn" data-toggle="modal" data-target="#viewEventModal">View</button>
+          <button class="btn btn-warning btn-sm edit-btn" data-toggle="modal" data-target="#editEventModal">Edit</button>
+          <button class="btn btn-danger btn-sm archive-btn">Archive</button>
+      </td>
+  `;
 
-  const eventNameCell = document.createElement('td');
-  eventNameCell.textContent = eventTitle;
-  newRow.appendChild(eventNameCell);
-
-  const dateCell = document.createElement('td');
-  dateCell.textContent = new Date(eventDateTime).toLocaleString();
-  newRow.appendChild(dateCell);
-
+  // Append new row to table
   tableBody.appendChild(newRow);
+
+  // Attach event listeners
+  attachEventListeners(newRow);
 
   // Close modal
   $('#addEventModal').modal('hide');
-  
+
   // Clear form
   document.getElementById('eventForm').reset();
+});
+
+// Function to attach event listeners for View, Edit, and Archive buttons
+function attachEventListeners(row) {
+  const viewBtn = row.querySelector(".view-btn");
+  const editBtn = row.querySelector(".edit-btn");
+  const archiveBtn = row.querySelector(".archive-btn");
+
+  // View button functionality
+  viewBtn.addEventListener("click", function () {
+    document.getElementById('viewEventTitle').textContent = row.cells[1].textContent;
+    document.getElementById('viewEventChapter').textContent = row.cells[0].textContent;
+    document.getElementById('viewEventDescription').textContent = "Event description here..."; // Update dynamically if needed
+    document.getElementById('viewEventDateTime').textContent = row.cells[2].textContent;
+    document.getElementById('viewEventFee').textContent = "₱0"; // Update dynamically if needed
+  });
+
+  // Edit button functionality
+  editBtn.addEventListener("click", function () {
+    document.getElementById('editEventTitle').value = row.cells[1].textContent;
+    document.getElementById('editEventChapter').value = row.cells[0].textContent;
+    document.getElementById('editEventDescription').value = "Event description here..."; // Update dynamically if needed
+    document.getElementById('editEventDateTime').value = new Date(row.cells[2].textContent).toISOString().slice(0, 16);
+    document.getElementById('editEventFee').value = "0"; // Update dynamically if needed
+
+    // Save changes
+    document.getElementById('updateEvent').onclick = function () {
+      row.cells[0].textContent = document.getElementById('editEventChapter').value;
+      row.cells[1].textContent = document.getElementById('editEventTitle').value;
+      row.cells[2].textContent = new Date(document.getElementById('editEventDateTime').value).toLocaleString();
+
+      // Close modal
+      $('#editEventModal').modal('hide');
+    };
+  });
+
+  // Archive button functionality
+  archiveBtn.addEventListener("click", function () {
+    row.remove();
+  });
+}
+
+// Attach event listeners to existing table rows
+document.querySelectorAll("#eventsTable tbody tr").forEach(row => {
+  attachEventListeners(row);
+});
+
+// Add event listeners for View and Edit buttons
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('view-btn')) {
+      const row = event.target.closest('tr');
+      document.getElementById('viewEventTitle').textContent = row.cells[1].textContent;
+      document.getElementById('viewEventChapter').textContent = row.cells[0].textContent;
+      document.getElementById('viewEventDateTime').textContent = row.cells[2].textContent;
+      $('#viewEventModal').modal('show');
+  }
+
+  if (event.target.classList.contains('edit-btn')) {
+      const row = event.target.closest('tr');
+      document.getElementById('eventTitle').value = row.cells[1].textContent;
+      document.getElementById('eventChapter').value = row.cells[0].textContent;
+      document.getElementById('eventDateTime').value = new Date(row.cells[2].textContent).toISOString().slice(0, 16);
+      $('#addEventModal').modal('show');
+  }
 });
 
 function openViewModal(button) {
@@ -723,7 +790,7 @@ function openViewModal(button) {
   document.getElementById("viewEventFee").innerText = row.dataset.fee ? "₱" + row.dataset.fee : "Free";
 
   let poster = document.getElementById("viewEventPoster");
-  poster.src = row.dataset.poster || "default-placeholder.jpg";
+  poster.src = row.dataset.poster || "../images/poster.png";
 }
 
 function openEditModal(button) {
@@ -742,4 +809,9 @@ function openEditModal(button) {
 function formatDateTime(dateTimeString) {
   let date = new Date(dateTimeString);
   return date.toISOString().slice(0, 16);
+}
+
+function archiveEvent(button) {
+  let row = button.closest("tr");
+  row.remove(); // Removes the event row from the table
 }
