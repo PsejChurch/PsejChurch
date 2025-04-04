@@ -1333,3 +1333,4 @@ function updateStatus(selectElement) {
   statusCell.textContent = newStatus;
   alertify.success(`Status updated to: ${newStatus}`);
 }
+

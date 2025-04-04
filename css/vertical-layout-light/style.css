@@ -30676,4 +30676,19 @@ div.tagsinput span.tag a {
   opacity: 1;
 }
 
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .form-control {
+  padding-right: 30px;
+}
+
+.input-wrapper .ti-search {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
