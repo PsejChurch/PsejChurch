@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PSEJ Church - Accounting</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="../../js/select.dataTables.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/logo.png" />
+</head>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="accounting-dashboard.html"><img src="../../images/LOGO PSEJ.png" class="mr-2"
+                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="accounting-dashboard.html"><img src="../../images/logo.png" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                                aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-toggle="dropdown">
+                            <i class="icon-bell mx-0"></i>
+                            <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="ti-info-alt mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Just now
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-warning">
+                                        <i class="ti-settings mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Private message
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-info">
+                                        <i class="ti-user mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        2 days ago
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="../../images/logo.png" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            <a href="accounting/settings.html" class="dropdown-item">
+                                <i class="ti-settings text-primary"></i>
+                                Settings
+                            </a>
+                            <a href="index.html" class="dropdown-item">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li> -->
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                        <div class="img-ss rounded-circle bg-light border mr-3"></div>Light
+                    </div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark
+                    </div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="maindash.html">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/acc.html">
+                            <i class="ti-book menu-icon"></i> <!-- Book icon for Accounting (represents records) -->
+                            <span class="menu-title">Accounting</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/settings.html">
+                            <i class="ti-settings menu-icon"></i>
+                            <span class="menu-title">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="row">
+                                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                                    <h3 class="font-weight-bold">Welcome Accounting!</h3>
+                                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
+                                            class="text-primary">3 unread alerts!</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card tale-bg">
+                                <div class="card-people mt-auto text-center">
+                                    <img src="images/time.svg" alt="people" class="mb-3 img-fluid">
+                                    <div
+                                        class="time-info d-flex flex-wrap justify-content-center align-items-center text-center">
+                                        <i class="ti-timer text-primary mr-2" style="font-size: 2rem;"></i>
+                                        <!-- Clock Icon -->
+                                        <h2 id="current-time" class="mb-0 font-weight-bold"></h2>
+                                        <span class="ml-3 text-muted location-text">| Bulacan, Philippines</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 grid-margin transparent">
+                            <div class="row">
+                                <!-- Today's Total Attendance -->
+                                <div class="col-md-6 mb-4 stretch-card transparent">
+                                    <div class="card card-tale">
+                                        <div class="card-body">
+                                            <p class="mb-4">Overall Attendance Report</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <p class="mb-0" style="font-size: 1.2rem;">Present</p>
+                                                    <h4 class="font-weight-bold" style="font-size: 2rem;">31,200</h4>
+                                                    <!-- Adjust the Present total here -->
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0" style="font-size: 1.2rem;">Absent</p>
+                                                    <h4 class="font-weight-bold" style="font-size: 2rem;">806</h4>
+                                                    <!-- Adjust the Absent total here -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Overall Total Attendance -->
+                                <div class="col-md-6 mb-4 stretch-card transparent">
+                                    <div class="card card-dark-blue">
+                                        <div class="card-body">
+                                            <p class="mb-4">Overall Visitors</p>
+                                            <p class="fs-30 mb-2">61,344</p>
+                                            <p>22.00% (30 days)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Total Number of Events -->
+                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                                    <div class="card card-light-blue">
+                                        <div class="card-body">
+                                            <p class="mb-4">Overall Tithes & Offering Collected</p>
+                                            <p class="fs-30 mb-2">34,040</p>
+                                            <p>2.00% (30 days)</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Total Number of Members -->
+                                <div class="col-md-6 stretch-card transparent">
+                                    <div class="card card-light-danger">
+                                        <div class="card-body">
+                                            <p class="mb-4">Overall Expenses Report</p>
+                                            <p class="fs-30 mb-2">47,033</p>
+                                            <p>0.22% (30 days)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <!-- Events Table -->
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title">Events Per Chapter</p>
+
+                                    <!-- Search Bar with Icon -->
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ti-search"></i></span>
+                                        </div>
+                                        <input type="text" id="searchEvent" class="form-control"
+                                            placeholder="Search events..." onkeyup="searchEvents()">
+                                    </div>
+
+                                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                        <table class="table" id="eventsTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Chapter</th>
+                                                    <th>Event Name</th>
+                                                    <th>Date & Time</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr data-chapter="Chapter 1" data-name="Sunday Worship"
+                                                    data-description="A time of worship and prayer."
+                                                    data-datetime="2025-03-31T10:00" data-fee="0"
+                                                    data-poster="poster1.jpg">
+                                                    <td>Chapter 1</td>
+                                                    <td>Sunday Worship</td>
+                                                    <td>March 31, 2025 - 10:00 AM</td>
+                                                    <td>
+                                                        <button class="btn btn-info btn-sm" data-toggle="modal"
+                                                            data-target="#viewEventModal"
+                                                            onclick="openViewModal(this)">View</button>
+                                                        <button class="btn btn-warning btn-sm" data-toggle="modal"
+                                                            data-target="#editEventModal"
+                                                            onclick="openEditModal(this)">Edit</button>
+                                                        <button class="btn btn-danger btn-sm"
+                                                            onclick="archiveEvent(this)">Archive</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Button for Adding Event -->
+                                <div class="d-flex justify-content-end p-3">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
+                                        Add Event
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- View Event Modal -->
+                        <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="viewEventModalLabel">Event Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img id="viewEventImage" src="images/poster.png" alt="Event Image"
+                                                    class="img-fluid rounded">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label>Chapter</label>
+                                                        <input type="text" class="form-control" id="viewChapter"
+                                                            readonly>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Event Name</label>
+                                                        <input type="text" class="form-control" id="viewEventName"
+                                                            readonly>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Date & Time</label>
+                                                        <input type="datetime-local" class="form-control"
+                                                            id="viewEventDateTime" readonly>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Description</label>
+                                                        <textarea class="form-control" id="viewEventDescription"
+                                                            rows="3" readonly></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Event Modal -->
+                        <div class="modal fade" id="editEventModal" tabindex="-1" aria-labelledby="editEventModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editEventModalLabel">Edit Event</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="editEventImage">Change Image</label>
+                                                <input type="file" class="form-control-file" id="editEventImage"
+                                                    accept="image/*">
+                                                <img id="previewEditImage" src="images/poster.png" alt="Event Image"
+                                                    class="img-fluid rounded mt-2">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <form id="editEventForm">
+                                                    <div class="form-group">
+                                                        <label for="eventChapter">Chapter</label>
+                                                        <select class="form-control" id="editEventChapter">
+                                                            <option value="General">Overall Chapters</option>
+                                                            <option value="Chapter 1">Poblacion Plaridel</option>
+                                                            <option value="Chapter 2">Sipat Plaridel</option>
+                                                            <option value="Chapter 3">Banga 1st</option>
+                                                            <option value="Chapter 4">San Antonio NE</option>
+                                                            <option value="Chapter 5">San Leonardo NE</option>
+                                                            <option value="Chapter 6">R10 Tondo</option>
+                                                            <option value="Chapter 6">Cavite</option>
+                                                            <option value="Chapter 6">Galas Balagtas</option>
+                                                            <option value="Chapter 6">San Jose Plaridel</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="editEventName">Event Name</label>
+                                                        <input type="text" class="form-control" id="editEventName">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="editEventDateTime">Date & Time</label>
+                                                        <input type="datetime-local" class="form-control"
+                                                            id="editEventDateTime">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="editEventDescription">Description</label>
+                                                        <textarea class="form-control" id="editEventDescription"
+                                                            rows="3"></textarea>
+                                                    </div>
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="saveEditEvent()">Save Changes</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add Event Modal -->
+                        <div class="modal fade" id="addEventModal" tabindex="-1" role="dialog"
+                            aria-labelledby="addEventModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addEventModalLabel">Add Event</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="eventForm">
+                                            <div class="row">
+                                                <!-- Left Column -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-group">
+                                                        <label for="eventPoster">Add Poster</label>
+                                                        <input type="file" class="form-control-file" id="eventPoster"
+                                                            accept="image/*">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="eventChapter">Chapter</label>
+                                                        <select class="form-control" id="eventChapter">
+                                                            <option value="General">Overall Chapters</option>
+                                                            <option value="Chapter 1">Poblacion Plaridel</option>
+                                                            <option value="Chapter 2">Sipat Plaridel</option>
+                                                            <option value="Chapter 3">Banga 1st</option>
+                                                            <option value="Chapter 4">San Antonio NE</option>
+                                                            <option value="Chapter 5">San Leonardo NE</option>
+                                                            <option value="Chapter 6">R10 Tondo</option>
+                                                            <option value="Chapter 6">Cavite</option>
+                                                            <option value="Chapter 6">Galas Balagtas</option>
+                                                            <option value="Chapter 6">San Jose Plaridel</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="eventTitle">Event Title</label>
+                                                        <input type="text" class="form-control" id="eventTitle"
+                                                            placeholder="Enter event title">
+                                                    </div>
+                                                </div>
+                                                <!-- Right Column -->
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-group">
+                                                        <label for="eventDescription">Event Description</label>
+                                                        <textarea class="form-control" id="eventDescription" rows="4"
+                                                            placeholder="Enter event description"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="eventDateTime">Event Date & Time</label>
+                                                        <input type="datetime-local" class="form-control"
+                                                            id="eventDateTime">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="eventFee">Event Fee (if applicable)</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">₱</span>
+                                                            </div>
+                                                            <input type="number" class="form-control" id="eventFee"
+                                                                placeholder="Enter fee (0 if free)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="saveEvent">Save Event</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-title">Yearly Report</p>
+                                        <a href="#" class="text-info">View all</a>
+                                    </div>
+                                    <p class="font-weight-500">The total number of sessions within the date range. It is
+                                        the period time a
+                                        user is actively engaged with your website, page or app, etc</p>
+                                    <div id="present-legend" class="chartjs-legend mt-4 mb-2"></div>
+                                    <canvas id="month-present-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card position-relative">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
+                                            <p class="card-title">this Week's Report</p>
+                                            <div class="ml-xl-4 mt-3">
+                                                <p class="card-title">Present Reports</p>
+                                                <h1 class="text-primary">1,235</h1>
+                                                <h3 class="font-weight-500 mb-xl-4 text-primary">Total</h3>
+                                                <p class="mb-2 mb-xl-0">
+                                                    This is the total number of attendees recorded for the selected
+                                                    period, based on monitored
+                                                    attendance logs.
+                                                </p>
+                                            </div>
+
+                                            <div class="ml-xl-4 mt-5">
+                                                <p class="card-title">Absent Reports</p>
+                                                <h1 class="text-danger">530</h1>
+                                                <h3 class="font-weight-500 mb-xl-4 text-danger">Total</h3>
+                                                <p class="mb-2 mb-xl-0">
+                                                    This represents the number of members who were marked absent during
+                                                    the selected period, based
+                                                    on attendance tracking.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xl-9">
+                                            <div class="row">
+                                                <div class="col-md-6 border-right">
+                                                    <div class="table-responsive mb-3 mb-md-0 mt-3">
+                                                        <table class="table table-borderless report-table">
+                                                            <tr>
+                                                                <td class="text-muted">Poblacion Plaridel</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 70%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 30%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">713</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">307
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">Sipat Plaridel</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 60%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 40%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">583</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">387
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">Banga 1st</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 85%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 15%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">924</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">164
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">San Antonio NE</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 55%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 45%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">664</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">536
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">San Leonardo NE</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 50%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 50%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">560</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">560
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">R10 Tondo</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 75%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 25%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">793</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">267
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">Cavite</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 68%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 32%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">793</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">377
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">Galas Balagtas</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 80%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 20%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">793</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">193
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-muted">San Jose Plaridel</td>
+                                                                <td class="w-100 px-0">
+                                                                    <div class="progress progress-md mx-4">
+                                                                        <div class="progress-bar bg-primary"
+                                                                            style="width: 65%"></div> <!-- Present -->
+                                                                    </div>
+                                                                    <div class="progress progress-md mx-4 mt-1">
+                                                                        <div class="progress-bar bg-danger"
+                                                                            style="width: 35%"></div> <!-- Absent -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <h5 class="font-weight-bold mb-0">793</h5>
+                                                                    <!-- Present -->
+                                                                    <h5 class="font-weight-bold mb-0 text-danger">427
+                                                                    </h5> <!-- Absent -->
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mt-3 d-flex flex-column align-items-center">
+                                                    <h2 class="text-center">Monthly Report</h2>
+                                                    <p class="text-center text-muted" style="max-width: 500px;">
+                                                        This chart shows the attendance trends for the month including
+                                                        Present, Absent, and Late data.
+                                                    </p>
+
+                                                    <!-- Add margin-top to push canvas lower -->
+                                                    <div
+                                                        style="position: relative; width: 100%; max-width: 600px; height: 400px; margin-top: 50px;">
+                                                        <canvas id="lineChart"></canvas>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title mb-0">Attendance per Chapter</p>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Chapter</th>
+                                                    <th>Date & Time</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Juan Dela Cruz</td>
+                                                    <td class="font-weight-bold">North Chapter</td>
+                                                    <td>March 27, 2025 - 10:00 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-success">Present</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Maria Santos</td>
+                                                    <td class="font-weight-bold">South Chapter</td>
+                                                    <td>March 27, 2025 - 10:05 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-success">Present</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Pedro Ramirez</td>
+                                                    <td class="font-weight-bold">East Chapter</td>
+                                                    <td>March 27, 2025 - 10:15 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-warning">Late</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ana Mendoza</td>
+                                                    <td class="font-weight-bold">West Chapter</td>
+                                                    <td>March 27, 2025 - 10:30 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-danger">Absent</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carlos Reyes</td>
+                                                    <td class="font-weight-bold">Central Chapter</td>
+                                                    <td>March 27, 2025 - 10:20 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-warning">Late</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Elena Cruz</td>
+                                                    <td class="font-weight-bold">North Chapter</td>
+                                                    <td>March 27, 2025 - 10:00 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-success">Present</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rafael Dominguez</td>
+                                                    <td class="font-weight-bold">South Chapter</td>
+                                                    <td>March 27, 2025 - 10:10 AM</td>
+                                                    <td class="font-weight-medium">
+                                                        <div class="badge badge-success">Present</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025. <a
+                                href="index.html" target="_blank">PSEJ Church</a> All rights reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                            Full Gospel ministry in the Government of 12 movement
+                            <i class="ti-book text-primary ml-1"></i>
+                        </span>
+
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+            document.getElementById("current-time").innerText = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        document.getElementById("saveEvent").addEventListener("click", function () {
+            let chapter = document.getElementById("eventChapter").value;
+            let title = document.getElementById("eventTitle").value;
+            let date = document.getElementById("eventDate").value;
+
+            if (title && date) {
+                let table = document.getElementById("eventsTable");
+                let newRow = table.insertRow();
+                newRow.innerHTML = `<td>${chapter}</td><td>${title}</td><td>${date}</td>`;
+
+                // Clear input fields
+                document.getElementById("eventForm").reset();
+
+                // Close modal
+                $("#addEventModal").modal("hide");
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+
+    </script>
+
+    <!-- plugins:js -->
+    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../../vendors/chart.js/Chart.min.js"></script>
+    <script src="../../vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="../../js/dataTables.select.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../js/off-canvas.js"></script>
+    <script src="../../js/hoverable-collapse.js"></script>
+    <script src="../../js/template.js"></script>
+    <script src="../../js/settings.js"></script>
+    <script src="../../js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../../js/dashboard.js"></script>
+    <script src="../../js/chart.js"></script>
+    <script src="../../js/Chart.roundedBarCharts.js"></script>
+
+
+    <!-- End custom js for this page-->
+</body>
+
+</html>
