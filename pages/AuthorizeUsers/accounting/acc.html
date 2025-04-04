@@ -253,33 +253,36 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Amount</th>
+                                                                <th>Description</th> <!-- New column -->
                                                                 <th>Status</th>
                                                                 <th>Action</th>
                                                             </tr>
-                                                        </thead>
+                                                        </thead>                                                        
                                                         <tbody>
                                                             <tr>
                                                                 <td>₱1,000</td>
+                                                                <td>Registration Fee</td> <!-- Description -->
                                                                 <td>Pending</td>
                                                                 <td>
-                                                                    <select class="form-select" onchange="updateStatus(this)">
-                                                                        <option>Pending</option>
-                                                                        <option>Collected</option>
-                                                                        <option>Bank Deposit</option>
-                                                                    </select>
+                                                                  <select class="form-select" onchange="updateStatus(this)">
+                                                                    <option>Pending</option>
+                                                                    <option>Collected</option>
+                                                                    <option>Bank Deposit</option>
+                                                                  </select>
                                                                 </td>
-                                                            </tr>
-                                                            <tr>
+                                                              </tr>
+                                                              <tr>
                                                                 <td>₱500</td>
+                                                                <td>Tithes</td> <!-- Description -->
                                                                 <td>Collected</td>
                                                                 <td>
-                                                                    <select class="form-select" onchange="updateStatus(this)">
-                                                                        <option>Pending</option>
-                                                                        <option selected>Collected</option>
-                                                                        <option>Bank Deposit</option>
-                                                                    </select>
+                                                                  <select class="form-select" onchange="updateStatus(this)">
+                                                                    <option>Pending</option>
+                                                                    <option selected>Collected</option>
+                                                                    <option>Bank Deposit</option>
+                                                                  </select>
                                                                 </td>
-                                                            </tr>
+                                                              </tr>                                                              
                                                             <!-- More rows for the selected chapter will be populated dynamically -->
                                                         </tbody>
                                                     </table>

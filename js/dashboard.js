@@ -1082,12 +1082,12 @@ function showChapter(chapter, element) {
 
 function generateTable(chapter) {
   let tableRows = '';
-  
-  // Example rows for different chapters with Peso amounts
+
   if (chapter === 'Poblacion Plaridel') {
     tableRows = `
       <tr>
         <td>₱1,000</td>
+        <td>Registration Fee</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1099,6 +1099,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱500</td>
+        <td>Tithes</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1113,6 +1114,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱300</td>
+        <td>Offering</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1124,6 +1126,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱150</td>
+        <td>Offering</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1138,6 +1141,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱2,000</td>
+        <td>Registration Fee</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1149,6 +1153,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱1,200</td>
+        <td>Tithes</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1163,6 +1168,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱500</td>
+        <td>Offering</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1174,6 +1180,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱300</td>
+        <td>Offering</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1188,6 +1195,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱400</td>
+        <td>Offering</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1199,6 +1207,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱250</td>
+        <td>Offering</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1213,6 +1222,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱800</td>
+        <td>Registration Fee</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1224,6 +1234,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱400</td>
+        <td>Tithes</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1238,6 +1249,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱1,500</td>
+        <td>Offering</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1249,6 +1261,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱750</td>
+        <td>Tithes</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1263,6 +1276,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱2,500</td>
+        <td>Registration Fee</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1274,6 +1288,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱1,500</td>
+        <td>Tithes</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1288,6 +1303,7 @@ function generateTable(chapter) {
     tableRows = `
       <tr>
         <td>₱600</td>
+        <td>Offering</td>
         <td>Pending</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1299,6 +1315,7 @@ function generateTable(chapter) {
       </tr>
       <tr>
         <td>₱350</td>
+        <td>Offering</td>
         <td>Collected</td>
         <td>
           <select class="form-select" onchange="updateStatus(this)">
@@ -1316,6 +1333,7 @@ function generateTable(chapter) {
       <thead>
         <tr>
           <th>Amount</th>
+          <th>Description</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
