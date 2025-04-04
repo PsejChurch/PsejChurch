@@ -175,7 +175,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="acc.html">
                             <i class="ti-book menu-icon"></i> 
                             <span class="menu-title">Accounting</span>
@@ -210,75 +210,79 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
-                                        <!-- First Column: Settings Menu -->
+                                        <!-- First Column: Chapters Menu -->
                                         <div class="col-12 col-md-4 mb-3">
-                                            <h5 class="mb-3"><i class="ti-settings"></i> Settings</h5>
+                                            <h5 class="mb-3"><i class="ti-book"></i> Accounting Chapters</h5>
                                             <div class="list-group">
-                                                <button class="list-group-item list-group-item-action active"
-                                                    onclick="showSetting('adminInfo', this)">
-                                                    <i class="ti-user me-2"></i> Admin Information
+                                                <button class="list-group-item list-group-item-action active" onclick="showChapter('Poblacion Plaridel', this)">
+                                                    Poblacion Plaridel
                                                 </button>
-                                                <button class="list-group-item list-group-item-action"
-                                                    onclick="showSetting('privacySecurity', this)">
-                                                    <i class="ti-lock me-2"></i> Privacy & Security
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Sipat Plaridel', this)">
+                                                    Sipat Plaridel
                                                 </button>
-                                                <button class="list-group-item list-group-item-action"
-                                                    onclick="showSetting('backupRestore', this)">
-                                                    <i class="ti-cloud-up me-2"></i> Backup & Restore
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Banga 1st', this)">
+                                                    Banga 1st
                                                 </button>
-                                                <button class="list-group-item list-group-item-action"
-                                                    onclick="showSetting('activityLogs', this)">
-                                                    <i class="ti-time me-2"></i> Activity Logs
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Antonio NE', this)">
+                                                    San Antonio NE
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Leonardo NE', this)">
+                                                    San Leonardo NE
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('R10 Tondo', this)">
+                                                    R10 Tondo
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Cavite', this)">
+                                                    Cavite
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Galas Balagtas', this)">
+                                                    Galas Balagtas
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Jose Plaridel', this)">
+                                                    San Jose Plaridel
                                                 </button>
                                             </div>
                                         </div>
-
-                                        <!-- Second Column: Dynamic Content -->
+                                        
+                                        <!-- Second Column: Table Content -->
                                         <div class="col-12 col-md-8">
                                             <div class="p-3">
-                                                <div id="settingsContent" class="fade-content show">
-                                                    <h5 class="card-title"><i class="ti-user"></i> Admin Information
-                                                    </h5>
-                                                    <p class="card-text">Manage admin details, email, and contact
-                                                        information.</p>
-
-                                                    <form id="adminInfoForm">
-                                                        <div class="mb-3">
-                                                            <label for="adminName" class="form-label"><i
-                                                                    class="ti-user"></i> Full Name</label>
-                                                            <input type="text" class="form-control" id="adminName"
-                                                                placeholder="Enter full name" value="John Doe">
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label for="adminEmail" class="form-label"><i
-                                                                    class="ti-email"></i> Email Address</label>
-                                                            <input type="email" class="form-control" id="adminEmail"
-                                                                placeholder="Enter email" value="admin@example.com">
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label for="adminPhone" class="form-label"><i
-                                                                    class="ti-mobile"></i> Phone Number</label>
-                                                            <input type="text" class="form-control" id="adminPhone"
-                                                                placeholder="Enter phone number" value="+1234567890">
-                                                        </div>
-
-                                                        <div class="mb-3">
-                                                            <label for="adminRole" class="form-label"><i
-                                                                    class="ti-id-badge"></i> Role</label>
-                                                            <select class="form-control" id="adminRole">
-                                                                <option selected>Administrator</option>
-                                                                <option>Super Admin</option>
-                                                                <option>Editor</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <button type="button" class="btn btn-primary"
-                                                            onclick="saveAdminInfo()">
-                                                            <i class="ti-save"></i> Save Changes
-                                                        </button>
-                                                    </form>
+                                                <div id="chapterContent" class="fade-content show">
+                                                    <h5 class="card-title"><i class="ti-clipboard"></i> Poblacion Plaridel</h5>
+                                                    <table class="table table-striped table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Amount</th>
+                                                                <th>Status</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>₱1,000</td>
+                                                                <td>Pending</td>
+                                                                <td>
+                                                                    <select class="form-select" onchange="updateStatus(this)">
+                                                                        <option>Pending</option>
+                                                                        <option>Collected</option>
+                                                                        <option>Bank Deposit</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>₱500</td>
+                                                                <td>Collected</td>
+                                                                <td>
+                                                                    <select class="form-select" onchange="updateStatus(this)">
+                                                                        <option>Pending</option>
+                                                                        <option selected>Collected</option>
+                                                                        <option>Bank Deposit</option>
+                                                                    </select>
+                                                                </td>
+                                                            </tr>
+                                                            <!-- More rows for the selected chapter will be populated dynamically -->
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>

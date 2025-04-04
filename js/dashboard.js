@@ -56,15 +56,6 @@
           data: areaData,
           options: areaOptions
       });
-  
-      // 🎨 Generate Custom Legend
-      var legendContainer = document.getElementById("chart-legend");
-      legendContainer.innerHTML = areaData.datasets.map(dataset => `
-          <span>
-              <span class="legend-box" style="background-color: ${dataset.borderColor};"></span>
-              ${dataset.label}
-          </span>
-      `).join("");
   }  
     
     if ($("#order-chart-dark").length) {
@@ -231,76 +222,73 @@
     if ($("#accounting-chart").length) {
       var AccountingChartCanvas = $("#accounting-chart").get(0).getContext("2d");
       var AccountingChart = new Chart(AccountingChartCanvas, {
-        type: 'bar',
-        data: {
-          labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"], // Adjusted to 5 weeks
-          datasets: [{
-              label: 'Tithes & Offerings',
-              data: [31200, 45000, 51000, 62000, 34000], // Adjusted data for 5 weeks
-              backgroundColor: '#98BDFF' // Color for income
-            },
-            {
-              label: 'Expenses',
-              data: [8060, 12000, 9500, 8000, 11000], // Adjusted data for 5 weeks
-              backgroundColor: '#4B49AC' // Color for expenses
-            }
-          ]
-        },
-        options: {
-          cornerRadius: 5,
-          responsive: true,
-          maintainAspectRatio: true,
-          layout: {
-            padding: {
-              left: 0,
-              right: 0,
-              top: 20,
-              bottom: 0
-            }
-          },
-          scales: {
-            yAxes: [{
-              display: true,
-              gridLines: {
-                display: true,
-                drawBorder: false,
-                color: "#F2F2F2"
+          type: 'bar',
+          data: {
+              labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"], // Adjusted to 5 weeks
+              datasets: [{
+                  label: 'Tithes & Offerings',
+                  data: [31200, 45000, 51000, 62000, 34000], // Adjusted data for 5 weeks
+                  backgroundColor: '#98BDFF' // Color for income
               },
-              ticks: {
-                display: true,
-                min: 0,
-                max: 70000, // Adjust this max value based on your data
-                autoSkip: true,
-                maxTicksLimit: 10,
-                fontColor:"#6C7383"
+              {
+                  label: 'Expenses',
+                  data: [8060, 12000, 9500, 8000, 11000], // Adjusted data for 5 weeks
+                  backgroundColor: '#4B49AC' // Color for expenses
+              }]
+          },
+          options: {
+              cornerRadius: 5,
+              responsive: true,
+              maintainAspectRatio: true,
+              layout: {
+                  padding: {
+                      left: 0,
+                      right: 0,
+                      top: 20,
+                      bottom: 0
+                  }
+              },
+              scales: {
+                  yAxes: [{
+                      display: true,
+                      gridLines: {
+                          display: true,
+                          drawBorder: false,
+                          color: "#F2F2F2"
+                      },
+                      ticks: {
+                          display: true,
+                          min: 0,
+                          max: 70000, // Adjust this max value based on your data
+                          autoSkip: true,
+                          maxTicksLimit: 10,
+                          fontColor:"#6C7383"
+                      }
+                  }],
+                  xAxes: [{
+                      stacked: false,
+                      ticks: {
+                          beginAtZero: true,
+                          fontColor: "#6C7383"
+                      },
+                      gridLines: {
+                          color: "rgba(0, 0, 0, 0)",
+                          display: false
+                      },
+                      barPercentage: 1
+                  }]
+              },
+              legend: {
+                  display: true
+              },
+              elements: {
+                  point: {
+                      radius: 0
+                  }
               }
-            }],
-            xAxes: [{
-              stacked: false,
-              ticks: {
-                beginAtZero: true,
-                fontColor: "#6C7383"
-              },
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-                display: false
-              },
-              barPercentage: 1
-            }]
           },
-          legend: {
-            display: true
-          },
-          elements: {
-            point: {
-              radius: 0
-            }
-          }
-        },
       });
-      document.getElementById('accounting-legend').innerHTML = AccountingChart.generateLegend();
-    }    
-
+    }      
 
     if ($("#sales-chart-dark").length) {
       var SalesChartCanvas = $("#sales-chart-dark").get(0).getContext("2d");
@@ -1068,5 +1056,280 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function showChapter(chapter, element) {
+  const content = {
+    "Poblacion Plaridel": `<h5 class="card-title"><i class="ti-clipboard"></i> Poblacion Plaridel</h5>` + generateTable('Poblacion Plaridel'),
+    "Sipat Plaridel": `<h5 class="card-title"><i class="ti-clipboard"></i> Sipat Plaridel</h5>` + generateTable('Sipat Plaridel'),
+    "Banga 1st": `<h5 class="card-title"><i class="ti-clipboard"></i> Banga 1st</h5>` + generateTable('Banga 1st'),
+    "San Antonio NE": `<h5 class="card-title"><i class="ti-clipboard"></i> San Antonio NE</h5>` + generateTable('San Antonio NE'),
+    "San Leonardo NE": `<h5 class="card-title"><i class="ti-clipboard"></i> San Leonardo NE</h5>` + generateTable('San Leonardo NE'),
+    "R10 Tondo": `<h5 class="card-title"><i class="ti-clipboard"></i> R10 Tondo</h5>` + generateTable('R10 Tondo'),
+    "Cavite": `<h5 class="card-title"><i class="ti-clipboard"></i> Cavite</h5>` + generateTable('Cavite'),
+    "Galas Balagtas": `<h5 class="card-title"><i class="ti-clipboard"></i> Galas Balagtas</h5>` + generateTable('Galas Balagtas'),
+    "San Jose Plaridel": `<h5 class="card-title"><i class="ti-clipboard"></i> San Jose Plaridel</h5>` + generateTable('San Jose Plaridel'),
+  };
 
+  let contentDiv = document.getElementById("chapterContent");
+  contentDiv.classList.remove("show");
+  setTimeout(() => {
+    contentDiv.innerHTML = content[chapter];
+    contentDiv.classList.add("show");
+  }, 300);
 
+  document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
+  element.classList.add("active");
+}
+
+function generateTable(chapter) {
+  let tableRows = '';
+  
+  // Example rows for different chapters with Peso amounts
+  if (chapter === 'Poblacion Plaridel') {
+    tableRows = `
+      <tr>
+        <td>₱1,000</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱500</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'Sipat Plaridel') {
+    tableRows = `
+      <tr>
+        <td>₱300</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱150</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'Banga 1st') {
+    tableRows = `
+      <tr>
+        <td>₱2,000</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱1,200</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'San Antonio NE') {
+    tableRows = `
+      <tr>
+        <td>₱500</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱300</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'San Leonardo NE') {
+    tableRows = `
+      <tr>
+        <td>₱400</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱250</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'R10 Tondo') {
+    tableRows = `
+      <tr>
+        <td>₱800</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱400</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'Cavite') {
+    tableRows = `
+      <tr>
+        <td>₱1,500</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱750</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'Galas Balagtas') {
+    tableRows = `
+      <tr>
+        <td>₱2,500</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱1,500</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  } else if (chapter === 'San Jose Plaridel') {
+    tableRows = `
+      <tr>
+        <td>₱600</td>
+        <td>Pending</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>₱350</td>
+        <td>Collected</td>
+        <td>
+          <select class="form-select" onchange="updateStatus(this)">
+            <option>Pending</option>
+            <option selected>Collected</option>
+            <option>Bank Deposit</option>
+          </select>
+        </td>
+      </tr>
+    `;
+  }
+
+  return `
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tableRows}
+      </tbody>
+    </table>
+  `;
+}
+
+function updateStatus(selectElement) {
+  let newStatus = selectElement.value;
+  let statusCell = selectElement.parentElement.previousElementSibling;
+  statusCell.textContent = newStatus;
+  alertify.success(`Status updated to: ${newStatus}`);
+}
