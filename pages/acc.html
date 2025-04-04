@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>PSEJ Church - Settings</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../vendors/feather/feather.css" />
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css" />
+    <link rel="stylesheet" href="../vendors/css/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../vendors/datatables.net-bs4/dataTables.bootstrap4.css" />
+    <link rel="stylesheet" href="../vendors/ti-icons/css/themify-icons.css" />
+    <link rel="stylesheet" type="text/css" href="../js/select.dataTables.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../css/vertical-layout-light/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../images/logo.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="../index.html"><img src="../images/LOGO PSEJ.png"
+                        class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="../index.html"><img src="../images/logo.png"
+                        alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="icon-menu"></span>
+                </button>
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
+                                    <i class="icon-search"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
+                                aria-label="search" aria-describedby="search" />
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
+                            data-toggle="dropdown">
+                            <i class="icon-bell mx-0"></i>
+                            <span class="count"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
+                            aria-labelledby="notificationDropdown">
+                            <p class="mb-0 font-weight-normal float-left dropdown-header">
+                                Notifications
+                            </p>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="ti-info-alt mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">
+                                        Application Error
+                                    </h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Just now
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-warning">
+                                        <i class="ti-settings mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">Settings</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        Private message
+                                    </p>
+                                </div>
+                            </a>
+                            <a class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-info">
+                                        <i class="ti-user mx-0"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">
+                                        New user registration
+                                    </h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">
+                                        2 days ago
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="../images/logo.png" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                            aria-labelledby="profileDropdown">
+                            <a class="dropdown-item">
+                                <i class="ti-settings text-primary"></i>
+                                Settings
+                            </a>
+                            <a href="../index.html" class="dropdown-item">
+                                <i class="ti-power-off text-primary"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+                    <!-- <li class="nav-item nav-settings d-none d-lg-flex">
+            <a class="nav-link" href="#">
+              <i class="icon-ellipsis"></i>
+            </a>
+          </li> -->
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+                    data-toggle="offcanvas">
+                    <span class="icon-menu"></span>
+                </button>
+            </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_settings-panel.html -->
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger"><i class="ti-settings"></i></div>
+                <div id="theme-settings" class="settings-panel">
+                    <i class="settings-close ti-close"></i>
+                    <p class="settings-heading">SIDEBAR SKINS</p>
+                    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+                        <div class="img-ss rounded-circle bg-light border mr-3"></div>
+                        Light
+                    </div>
+                    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+                        <div class="img-ss rounded-circle bg-dark border mr-3"></div>
+                        Dark
+                    </div>
+                    <p class="settings-heading mt-2">HEADER SKINS</p>
+                    <div class="color-tiles mx-0 px-4">
+                        <div class="tiles success"></div>
+                        <div class="tiles warning"></div>
+                        <div class="tiles danger"></div>
+                        <div class="tiles info"></div>
+                        <div class="tiles dark"></div>
+                        <div class="tiles default"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../maindash.html">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
+                            aria-controls="form-elements">
+                            <i class="icon-book menu-icon"></i>
+                            <span class="menu-title">Chapters</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="form-elements">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">Poblacion Plaridel</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">Sipat Plaridel</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">Banga 1st</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">San Antonio NE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">San Leonardo NE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">R10 Tondo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">Cavite</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">Galas Balagtas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="pages/forms/basic_elements.html">San Jose Plaridel</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="member.html">
+                            <i class="ti-user menu-icon"></i>
+                            <span class="menu-title">Members</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="edu.html">
+                            <i class="ti-blackboard menu-icon"></i>
+                            <span class="menu-title">Education</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="offer.html">
+                            <i class="ti-heart menu-icon"></i>
+                            <span class="menu-title">Tithes & Offering</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="acc.html">
+                            <i class="ti-book menu-icon"></i>
+                            <span class="menu-title">Accounting</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="autho.html">
+                            <i class="ti-lock menu-icon"></i>
+                            <span class="menu-title">Authorize User</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">
+                            <i class="ti-settings menu-icon"></i>
+                            <span class="menu-title">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-md-12 grid-margin">
+                            <div class="row">
+                                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                                    <h3 class="font-weight-bold">Welcome Admin!</h3>
+                                    <h6 class="font-weight-normal mb-0">
+                                        Your settings are all configured! There are
+                                        <span class="text-primary">3 configurations awaiting your review!</span>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container settings-container">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- First Column: Chapters Menu -->
+                                        <div class="col-12 col-md-4 mb-3">
+                                            <h5 class="mb-3"><i class="ti-book"></i> Accounting Chapters</h5>
+                                            <div class="list-group">
+                                                <button class="list-group-item list-group-item-action active" onclick="showChapter('Poblacion Plaridel', this)">
+                                                    Poblacion Plaridel
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Sipat Plaridel', this)">
+                                                    Sipat Plaridel
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Banga 1st', this)">
+                                                    Banga 1st
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Antonio NE', this)">
+                                                    San Antonio NE
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Leonardo NE', this)">
+                                                    San Leonardo NE
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('R10 Tondo', this)">
+                                                    R10 Tondo
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Cavite', this)">
+                                                    Cavite
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('Galas Balagtas', this)">
+                                                    Galas Balagtas
+                                                </button>
+                                                <button class="list-group-item list-group-item-action" onclick="showChapter('San Jose Plaridel', this)">
+                                                    San Jose Plaridel
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Second Column: Table Content -->
+                                        <div class="col-12 col-md-8">
+                                            <div class="p-3">
+                                                <div id="chapterContent" class="fade-content show">
+                                                    <h5 class="card-title"><i class="ti-clipboard"></i> Poblacion Plaridel</h5>
+                                                    <table class="table table-striped table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Amount</th>
+                                                                <th>Description</th> <!-- New column -->
+                                                                <th>Status</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>                                                        
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>₱1,000</td>
+                                                                <td>Registration Fee</td> <!-- Description -->
+                                                                <td>Pending</td>
+                                                                <td>
+                                                                  <select class="form-select" onchange="updateStatus(this)">
+                                                                    <option>Pending</option>
+                                                                    <option>Collected</option>
+                                                                    <option>Bank Deposit</option>
+                                                                  </select>
+                                                                </td>
+                                                              </tr>
+                                                              <tr>
+                                                                <td>₱500</td>
+                                                                <td>Tithes</td> <!-- Description -->
+                                                                <td>Collected</td>
+                                                                <td>
+                                                                  <select class="form-select" onchange="updateStatus(this)">
+                                                                    <option>Pending</option>
+                                                                    <option selected>Collected</option>
+                                                                    <option>Bank Deposit</option>
+                                                                  </select>
+                                                                </td>
+                                                              </tr>                                                              
+                                                            <!-- More rows for the selected chapter will be populated dynamically -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025.
+                            <a href="../accounting-dashboard.html">PSEJ Church</a> All rights
+                            reserved.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+                            Full Gospel ministry in the Government of 12 movement
+                            <i class="ti-book text-primary ml-1"></i>
+                        </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString("en-US", {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+            });
+            document.getElementById("current-time").innerText = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        document
+            .getElementById("saveEvent")
+            .addEventListener("click", function () {
+                let chapter = document.getElementById("eventChapter").value;
+                let title = document.getElementById("eventTitle").value;
+                let date = document.getElementById("eventDate").value;
+
+                if (title && date) {
+                    let table = document.getElementById("eventsTable");
+                    let newRow = table.insertRow();
+                    newRow.innerHTML = `<td>${chapter}</td><td>${title}</td><td>${date}</td>`;
+
+                    // Clear input fields
+                    document.getElementById("eventForm").reset();
+
+                    // Close modal
+                    $("#addEventModal").modal("hide");
+                } else {
+                    alert("Please fill in all fields.");
+                }
+            });
+    </script>
+
+    <script>
+        // View member details
+        function viewMember(button) {
+            const row = button.closest('tr');
+            const name = row.cells[0].innerText;
+            const email = row.cells[1].innerText;
+            const phone = row.cells[2].innerText;
+            const chapter = row.cells[3].innerText;
+            const status = row.cells[4].innerText;
+
+            // Fill modal with member details
+            document.getElementById("viewName").innerText = name;
+            document.getElementById("viewEmail").innerText = email;
+            document.getElementById("viewPhone").innerText = phone;
+            document.getElementById("viewChapter").innerText = chapter;
+            document.getElementById("viewStatus").innerText = status;
+        }
+
+        // Edit member details
+        function editMember(button) {
+            const row = button.closest('tr');
+            const name = row.cells[0].innerText;
+            const email = row.cells[1].innerText;
+            const phone = row.cells[2].innerText;
+            const chapter = row.cells[3].innerText;
+            const status = row.cells[4].innerText;
+
+            // Fill modal with member details for editing
+            document.getElementById("editName").value = name;
+            document.getElementById("editEmail").value = email;
+            document.getElementById("editPhone").value = phone;
+            document.getElementById("editChapter").value = chapter;
+            document.getElementById("editStatus").value = status;
+        }
+
+        // Function to simulate saving member info and showing Alertify notifications
+        function saveEdit() {
+            // Get values from the form fields
+            const name = document.getElementById('editName').value;
+            const email = document.getElementById('editEmail').value;
+            const phone = document.getElementById('editPhone').value;
+            const chapter = document.getElementById('editChapter').value;
+            const status = document.getElementById('editStatus').value;
+
+            // Perform validation (simple check for empty fields)
+            if (!name || !email || !phone || !chapter || !status) {
+                // Show error if any field is empty
+                alertify.error('Please fill in all fields.');
+            } else {
+                // If all fields are filled, show success notification
+                alertify.success('Member details updated successfully!');
+
+                // Optionally, you can reset the form or close the modal
+                $('#editMemberModal').modal('hide'); // Close the modal
+            }
+        }
+    </script>
+
+    <script>
+        // Chapter Filter Function
+        document.getElementById('chapterFilter').addEventListener('change', function () {
+            const selectedChapter = this.value;
+            const rows = document.querySelectorAll('#memberTableBody tr');
+
+            rows.forEach(row => {
+                const rowChapter = row.getAttribute('data-chapter');
+                if (selectedChapter === 'all' || rowChapter === selectedChapter) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Search Function for Member Names
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#memberTableBody tr');
+
+            rows.forEach(row => {
+                const nameCell = row.querySelector('td:first-child');
+                const name = nameCell ? nameCell.textContent.toLowerCase() : '';
+                if (name.includes(searchQuery)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
+
+    <!-- plugins:js -->
+    <script src="../vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="../vendors/chart.js/Chart.min.js"></script>
+    <script src="../vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="../vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="../js/dataTables.select.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../js/off-canvas.js"></script>
+    <script src="../js/hoverable-collapse.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/settings.js"></script>
+    <script src="../js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/chart.js"></script>
+    <script src="../js/Chart.roundedBarCharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <!-- End custom js for this page-->
+</body>
+
+</html>
