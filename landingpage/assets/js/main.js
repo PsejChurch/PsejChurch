@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "secret": { password: "secret", redirect: "pages/AuthorizeUsers/secretariat-dashboard.html" },
         "account": { password: "account", redirect: "pages/AuthorizeUsers/accounting-dashboard.html" },
         "member": { password: "member", redirect: "pages/AuthorizeUsers/member-dashboard.html" },
-        "visitor": { password: "visitor", redirect: "visitor-page.html" },
+        "tithes": { password: "tithes", redirect: "pages/AuthorizeUsers/tithes-dashboard.html" }
       };
 
       if (users[username] && users[username].password === password) {

@@ -437,10 +437,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/acc.html">
-                <i class="ti-blackboard menu-icon"></i>
-                <span class="menu-title">Education</span>
+              <i class="ti-blackboard menu-icon"></i>
+              <span class="menu-title">Education</span>
             </a>
-        </li> 
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/offer.html">
               <i class="ti-heart menu-icon"></i> <!-- Heart icon for Tithes & Offering -->
@@ -458,7 +458,7 @@
               <i class="ti-lock menu-icon"></i> <!-- Lock icon for Authorized Users -->
               <span class="menu-title">Authorize User</span>
             </a>
-          </li>                  
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/settings.html">
               <i class="ti-settings menu-icon"></i>
@@ -527,16 +527,18 @@
                       <div class="d-flex justify-content-between align-items-center">
                         <div>
                           <p class="mb-0" style="font-size: 1.2rem;">Present</p>
-                          <h4 class="font-weight-bold" style="font-size: 2rem;">31,200</h4> <!-- Adjust the Present total here -->
+                          <h4 class="font-weight-bold" style="font-size: 2rem;">31,200</h4>
+                          <!-- Adjust the Present total here -->
                         </div>
                         <div>
                           <p class="mb-0" style="font-size: 1.2rem;">Absent</p>
-                          <h4 class="font-weight-bold" style="font-size: 2rem;">806</h4> <!-- Adjust the Absent total here -->
+                          <h4 class="font-weight-bold" style="font-size: 2rem;">806</h4>
+                          <!-- Adjust the Absent total here -->
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>                                             
+                </div>
 
                 <!-- Overall Total Attendance -->
                 <div class="col-md-6 mb-4 stretch-card transparent">
@@ -582,15 +584,16 @@
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Events Per Chapter</p>
-            
+
                   <!-- Search Bar with Icon -->
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ti-search"></i></span>
                     </div>
-                    <input type="text" id="searchEvent" class="form-control" placeholder="Search events..." onkeyup="searchEvents()">
-                  </div>                  
-            
+                    <input type="text" id="searchEvent" class="form-control" placeholder="Search events..."
+                      onkeyup="searchEvents()">
+                  </div>
+
                   <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
                     <table class="table" id="eventsTable">
                       <thead>
@@ -620,7 +623,7 @@
                     </table>
                   </div>
                 </div>
-            
+
                 <!-- Button for Adding Event -->
                 <div class="d-flex justify-content-end p-3">
                   <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
@@ -628,7 +631,7 @@
                   </button>
                 </div>
               </div>
-            </div>            
+            </div>
 
             <!-- View Event Modal -->
             <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel"
@@ -990,16 +993,18 @@
                         <div class="col-md-6 mt-3 d-flex flex-column align-items-center">
                           <h2 class="text-center">Monthly Report</h2>
                           <p class="text-center text-muted" style="max-width: 500px;">
-                            This chart shows the attendance trends for the month including Present, Absent, and Late data.
+                            This chart shows the attendance trends for the month including Present, Absent, and Late
+                            data.
                           </p>
-                        
+
                           <!-- Add margin-top to push canvas lower -->
-                          <div style="position: relative; width: 100%; max-width: 600px; height: 400px; margin-top: 50px;">
+                          <div
+                            style="position: relative; width: 100%; max-width: 600px; height: 400px; margin-top: 50px;">
                             <canvas id="lineChart"></canvas>
                           </div>
                         </div>
-                        
-                        
+
+
                       </div>
                     </div>
 
