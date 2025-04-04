@@ -225,7 +225,7 @@
                             <i class="ti-blackboard menu-icon"></i>
                             <span class="menu-title">Education</span>
                         </a>
-                    </li>                    
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="offer.html">
                             <i class="ti-heart menu-icon"></i>
@@ -262,15 +262,16 @@
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                     <h3 class="font-weight-bold">Welcome Admin</h3>
                                     <h6 class="font-weight-normal mb-0">
-                                        Manage your members and their settings. You can edit their details and toggle their active status.
+                                        Manage your members and their settings. You can edit their details and toggle
+                                        their active status.
 
                                     </h6>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="container settings-container">
                             <div class="card">
@@ -278,12 +279,13 @@
                                     <div class="row">
                                         <!-- Member List Section -->
                                         <div class="col-12 mb-3">
-                                    
+
                                             <!-- Filter and Search Section -->
                                             <div class="mb-3 d-flex justify-content-between align-items-center">
                                                 <!-- Chapter Filter -->
                                                 <div>
-                                                    <label for="chapterFilter" class="form-label">Filter by Chapter</label>
+                                                    <label for="chapterFilter" class="form-label">Filter by
+                                                        Chapter</label>
                                                     <select class="form-control" id="chapterFilter">
                                                         <option value="all">All Chapters</option>
                                                         <option value="Poblacion Plaridel">Poblacion Plaridel</option>
@@ -297,17 +299,18 @@
                                                         <option value="San Jose Plaridel">San Jose Plaridel</option>
                                                     </select>
                                                 </div>
-                                    
+
                                                 <!-- Search Bar -->
                                                 <div>
                                                     <label for="searchInput" class="form-label">Search Member</label>
                                                     <div class="input-wrapper">
-                                                        <input type="text" class="form-control" id="searchInput" placeholder="Search by name...">
+                                                        <input type="text" class="form-control" id="searchInput"
+                                                            placeholder="Search by name...">
                                                         <i class="ti-search"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <!-- Member Table -->
                                             <div class="p-3">
                                                 <table class="table table-striped table-hover">
@@ -318,6 +321,7 @@
                                                             <th>Phone</th>
                                                             <th>Chapter</th>
                                                             <th>Status</th>
+                                                            <th>Action</th> <!-- Added Action column -->
                                                         </tr>
                                                     </thead>
                                                     <tbody id="memberTableBody">
@@ -328,6 +332,14 @@
                                                             <td>+1234567890</td>
                                                             <td>Poblacion Plaridel</td>
                                                             <td>Active</td>
+                                                            <td>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                                                    data-target="#viewMemberModal"
+                                                                    onclick="viewMember(this)">View</button>
+                                                                <button class="btn btn-primary btn-sm"
+                                                                    data-toggle="modal" data-target="#editMemberModal"
+                                                                    onclick="editMember(this)">Edit</button>
+                                                            </td>
                                                         </tr>
                                                         <tr data-chapter="Sipat Plaridel">
                                                             <td>Ana Santos</td>
@@ -335,6 +347,14 @@
                                                             <td>+1234567891</td>
                                                             <td>Sipat Plaridel</td>
                                                             <td>Inactive</td>
+                                                            <td>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                                                    data-target="#viewMemberModal"
+                                                                    onclick="viewMember(this)">View</button>
+                                                                <button class="btn btn-primary btn-sm"
+                                                                    data-toggle="modal" data-target="#editMemberModal"
+                                                                    onclick="editMember(this)">Edit</button>
+                                                            </td>
                                                         </tr>
                                                         <tr data-chapter="Banga 1st">
                                                             <td>Mark Garcia</td>
@@ -342,6 +362,14 @@
                                                             <td>+1234567892</td>
                                                             <td>Banga 1st</td>
                                                             <td>Active</td>
+                                                            <td>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                                                    data-target="#viewMemberModal"
+                                                                    onclick="viewMember(this)">View</button>
+                                                                <button class="btn btn-primary btn-sm"
+                                                                    data-toggle="modal" data-target="#editMemberModal"
+                                                                    onclick="editMember(this)">Edit</button>
+                                                            </td>
                                                         </tr>
                                                         <tr data-chapter="San Antonio NE">
                                                             <td>Maria Lopez</td>
@@ -349,6 +377,14 @@
                                                             <td>+1234567893</td>
                                                             <td>San Antonio NE</td>
                                                             <td>Inactive</td>
+                                                            <td>
+                                                                <button class="btn btn-info btn-sm" data-toggle="modal"
+                                                                    data-target="#viewMemberModal"
+                                                                    onclick="viewMember(this)">View</button>
+                                                                <button class="btn btn-primary btn-sm"
+                                                                    data-toggle="modal" data-target="#editMemberModal"
+                                                                    onclick="editMember(this)">Edit</button>
+                                                            </td>
                                                         </tr>
                                                         <!-- Add more rows as needed -->
                                                     </tbody>
@@ -356,7 +392,101 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
+                                    <!-- View Member Modal -->
+                                    <div class="modal fade" id="viewMemberModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="viewMemberModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="viewMemberModalLabel">View Member
+                                                        Details</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p><strong>Name:</strong> <span id="viewName"></span></p>
+                                                    <p><strong>Email:</strong> <span id="viewEmail"></span></p>
+                                                    <p><strong>Phone:</strong> <span id="viewPhone"></span></p>
+                                                    <p><strong>Chapter:</strong> <span id="viewChapter"></span></p>
+                                                    <p><strong>Status:</strong> <span id="viewStatus"></span></p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Edit Member Modal -->
+                                    <div class="modal fade" id="editMemberModal" tabindex="-1" role="dialog"
+                                        aria-labelledby="editMemberModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="editMemberModalLabel">Edit Member
+                                                        Details</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="editForm">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="editName">Name</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="editName" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="editEmail">Email</label>
+                                                                    <input type="email" class="form-control"
+                                                                        id="editEmail" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="editPhone">Phone</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="editPhone" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="editChapter">Chapter</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="editChapter" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="editStatus">Status</label>
+                                                                    <select class="form-control" id="editStatus">
+                                                                        <option>Active</option>
+                                                                        <option>Inactive</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn btn-primary"
+                                                            onclick="saveEdit()">Save Changes</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -426,37 +556,95 @@
     </script>
 
     <script>
-    // Chapter Filter Function
-    document.getElementById('chapterFilter').addEventListener('change', function () {
-        const selectedChapter = this.value;
-        const rows = document.querySelectorAll('#memberTableBody tr');
-        
-        rows.forEach(row => {
-            const rowChapter = row.getAttribute('data-chapter');
-            if (selectedChapter === 'all' || rowChapter === selectedChapter) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
+        // View member details
+        function viewMember(button) {
+            const row = button.closest('tr');
+            const name = row.cells[0].innerText;
+            const email = row.cells[1].innerText;
+            const phone = row.cells[2].innerText;
+            const chapter = row.cells[3].innerText;
+            const status = row.cells[4].innerText;
 
-    // Search Function for Member Names
-    document.getElementById('searchInput').addEventListener('input', function () {
-        const searchQuery = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#memberTableBody tr');
-        
-        rows.forEach(row => {
-            const nameCell = row.querySelector('td:first-child');
-            const name = nameCell ? nameCell.textContent.toLowerCase() : '';
-            if (name.includes(searchQuery)) {
-                row.style.display = '';
+            // Fill modal with member details
+            document.getElementById("viewName").innerText = name;
+            document.getElementById("viewEmail").innerText = email;
+            document.getElementById("viewPhone").innerText = phone;
+            document.getElementById("viewChapter").innerText = chapter;
+            document.getElementById("viewStatus").innerText = status;
+        }
+
+        // Edit member details
+        function editMember(button) {
+            const row = button.closest('tr');
+            const name = row.cells[0].innerText;
+            const email = row.cells[1].innerText;
+            const phone = row.cells[2].innerText;
+            const chapter = row.cells[3].innerText;
+            const status = row.cells[4].innerText;
+
+            // Fill modal with member details for editing
+            document.getElementById("editName").value = name;
+            document.getElementById("editEmail").value = email;
+            document.getElementById("editPhone").value = phone;
+            document.getElementById("editChapter").value = chapter;
+            document.getElementById("editStatus").value = status;
+        }
+
+        // Function to simulate saving member info and showing Alertify notifications
+        function saveEdit() {
+            // Get values from the form fields
+            const name = document.getElementById('editName').value;
+            const email = document.getElementById('editEmail').value;
+            const phone = document.getElementById('editPhone').value;
+            const chapter = document.getElementById('editChapter').value;
+            const status = document.getElementById('editStatus').value;
+
+            // Perform validation (simple check for empty fields)
+            if (!name || !email || !phone || !chapter || !status) {
+                // Show error if any field is empty
+                alertify.error('Please fill in all fields.');
             } else {
-                row.style.display = 'none';
+                // If all fields are filled, show success notification
+                alertify.success('Member details updated successfully!');
+
+                // Optionally, you can reset the form or close the modal
+                $('#editMemberModal').modal('hide'); // Close the modal
             }
+        }
+    </script>
+
+    <script>
+        // Chapter Filter Function
+        document.getElementById('chapterFilter').addEventListener('change', function () {
+            const selectedChapter = this.value;
+            const rows = document.querySelectorAll('#memberTableBody tr');
+
+            rows.forEach(row => {
+                const rowChapter = row.getAttribute('data-chapter');
+                if (selectedChapter === 'all' || rowChapter === selectedChapter) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
-    });
-</script>
+
+        // Search Function for Member Names
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchQuery = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#memberTableBody tr');
+
+            rows.forEach(row => {
+                const nameCell = row.querySelector('td:first-child');
+                const name = nameCell ? nameCell.textContent.toLowerCase() : '';
+                if (name.includes(searchQuery)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 
     <!-- plugins:js -->
