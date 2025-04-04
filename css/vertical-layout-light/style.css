@@ -30649,4 +30649,30 @@ div.tagsinput span.tag a {
   }
 }
 
+.settings-container {
+  max-width: 2000px;
+  margin: auto;
+}
+.card {
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.list-group-item {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border-radius: 8px;
+  padding: 12px;
+}
+.list-group-item:hover, .list-group-item.active {
+  background-color: #007bff;
+  color: white;
+}
+.fade-content {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.fade-content.show {
+  opacity: 1;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

@@ -447,7 +447,12 @@
               <span class="menu-title">Accounting</span>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" href="pages/authorize-user.html">
+              <i class="ti-lock menu-icon"></i> <!-- Lock icon for Authorized Users -->
+              <span class="menu-title">Authorize User</span>
+            </a>
+          </li>                  
           <li class="nav-item">
             <a class="nav-link" href="pages/settings.html">
               <i class="ti-settings menu-icon"></i>
@@ -571,6 +576,15 @@
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Events Per Chapter</p>
+            
+                  <!-- Search Bar with Icon -->
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ti-search"></i></span>
+                    </div>
+                    <input type="text" id="searchEvent" class="form-control" placeholder="Search events..." onkeyup="searchEvents()">
+                  </div>                  
+            
                   <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
                     <table class="table" id="eventsTable">
                       <thead>
@@ -600,7 +614,7 @@
                     </table>
                   </div>
                 </div>
-
+            
                 <!-- Button for Adding Event -->
                 <div class="d-flex justify-content-end p-3">
                   <button class="btn btn-primary" data-toggle="modal" data-target="#addEventModal">
@@ -608,7 +622,7 @@
                   </button>
                 </div>
               </div>
-            </div>
+            </div>            
 
             <!-- View Event Modal -->
             <div class="modal fade" id="viewEventModal" tabindex="-1" aria-labelledby="viewEventModalLabel"
@@ -1135,7 +1149,6 @@
   <script src="js/dashboard.js"></script>
   <script src="js/chart.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
-
 
   <!-- End custom js for this page-->
 </body>

@@ -887,3 +887,42 @@ function archiveEvent(button) {
   let row = button.closest("tr");
   row.remove(); // Removes the event row from the table
 }
+
+function searchEvents() {
+  let input = document.getElementById("searchEvent").value.toLowerCase();
+  let rows = document.querySelectorAll("#eventsTable tbody tr");
+
+  rows.forEach(row => {
+    let text = row.innerText.toLowerCase();
+    row.style.display = text.includes(input) ? "" : "none";
+  });
+}
+
+function showSetting(setting, element) {
+  let content = {
+      adminInfo: `<h5 class="card-title"><i class="ti-user"></i> Admin Information</h5>
+                  <p class="card-text">Manage admin details, email, and contact information.</p>`,
+
+      privacySecurity: `<h5 class="card-title"><i class="ti-lock"></i> Privacy & Security</h5>
+                        <p class="card-text">Control who can access your settings and secure your account.</p>`,
+
+      backupRestore: `<h5 class="card-title"><i class="ti-cloud-up"></i> Backup & Restore</h5>
+                      <p class="card-text">Backup important data and restore previous settings if needed.</p>`,
+
+      activityLogs: `<h5 class="card-title"><i class="ti-time"></i> Activity Logs</h5>
+                     <p class="card-text">View recent actions performed by users in the system.</p>`
+  };
+
+  // Add fade-out effect before changing content
+  let contentDiv = document.getElementById("settingsContent");
+  contentDiv.classList.remove("show");
+
+  setTimeout(() => {
+      contentDiv.innerHTML = content[setting];
+      contentDiv.classList.add("show");
+  }, 300);
+
+  // Remove 'active' from all buttons
+  document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
+  element.classList.add("active");
+}

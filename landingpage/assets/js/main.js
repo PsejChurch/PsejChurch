@@ -64,19 +64,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
 
     loginForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent page refresh
+      event.preventDefault(); // Prevent page refresh
 
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value.trim();
 
-        // Simple login check (Replace this with actual authentication later)
-        if (username === "admin" && password === "password") {  
-            window.location.href = "maindash.html"; // Redirect to dashboard
-        } else {
-            alert("Invalid username or password!"); // Show error message
-        }
+      // Simplified usernames and passwords
+      const users = {
+        "admin": { password: "admin", redirect: "maindash.html" },
+        "chapter": { password: "chapter", redirect: "chapter-dashboard.html" },
+        "secret": { password: "secret", redirect: "secretariat-dashboard.html" },
+        "account": { password: "account", redirect: "accounting-dashboard.html" },
+        "member": { password: "member", redirect: "member-dashboard.html" },
+        "visitor": { password: "visitor", redirect: "visitor-page.html" },
+      };
+
+      if (users[username] && users[username].password === password) {
+        window.location.href = users[username].redirect; // Redirect based on role
+      } else {
+        alert("Invalid username or password!"); // Show error message
+      }
     });
-});
+  });
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");

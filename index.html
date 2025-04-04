@@ -149,11 +149,51 @@
         <!--===== SUPPLICATION =====-->
         <section class="supplication section" id="supplication">
             <div class="bd-grid">
-                <h2 class="section-title">Supplication & Prayers</h2>
-                <p class="section-description">Send us your prayer requests, and our church community will lift them up
-                    in prayer.</p>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="image-column">
+                            <img src="landingpage/assets/img/pray.jpg" alt="Bible Image" class="bible-image">
+                        </div>
+                        <div class="form-column">
+                            <h2 class="section-title">Supplication & Prayers</h2>
+                            <p class="section-description">Send us your prayer requests, and our church community will lift them up in prayer.</p>
+                            
+                            <form action="#" method="POST" class="supplication-form">
+                                <div class="input-group">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="name" name="name" placeholder="Your Name" required class="input-field">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" name="email" placeholder="Your Email" required class="input-field">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <i class="fas fa-praying-hands"></i>
+                                    <select id="prayer-type" name="prayer-type" required class="input-field">
+                                        <option value="" disabled selected>Type of Prayer Request</option>
+                                        <option value="healing">Healing</option>
+                                        <option value="family">Family</option>
+                                        <option value="guidance">Guidance</option>
+                                        <option value="thanksgiving">Thanksgiving</option>
+                                        <option value="protection">Protection</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <i class="fas fa-comment"></i>
+                                    <textarea id="prayer" name="prayer" rows="4" placeholder="Your Prayer Request" required class="input-field"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-button">Send Prayer Request</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </section>        
 
         <!--===== FOOTER =====-->
         <footer class="footer">

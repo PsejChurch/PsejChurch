@@ -1,37 +1,43 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 /*===== VARIABLES CSS =====*/
-:root{
+:root {
   --header-height: 3rem;
 
   /*===== Colors =====*/
-  --first-color: #FFB76B;  /* Soft Orange */
-  --first-color-dark: #E34D4D;  /* Warm Red */
-  --first-color-darken: #C0392B;  /* Deeper Red */
+  --first-color: #FFB76B;
+  /* Soft Orange */
+  --first-color-dark: #E34D4D;
+  /* Warm Red */
+  --first-color-darken: #C0392B;
+  /* Deeper Red */
   --white-color: #FCF8F8;
-  
+
   /*===== Font and typography =====*/
   --body-font: 'Poppins', sans-serif;
   --big-font-size: 2rem;
   --normal-font-size: .938rem;
-  
+
   /*===== z index =====*/
   --z-fixed: 100;
 }
 
-@media screen and (min-width: 768px){
-  :root{
+@media screen and (min-width: 768px) {
+  :root {
     --big-font-size: 5rem;
     --normal-font-size: 1rem;
   }
 }
 
 /*===== BASE =====*/
-*,::before,::after{
+*,
+::before,
+::after {
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: var(--header-height) 0 0 0;
   padding: 0;
   font-family: var(--body-font);
@@ -39,26 +45,28 @@ body{
   font-weight: 500;
 }
 
-h1,p,ul{
+h1,
+p,
+ul {
   margin: 0;
 }
 
-ul{
+ul {
   padding: 0;
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-img{
+img {
   max-width: 100%;
   height: auto;
 }
 
 /*===== LAYOUT =====*/
-.bd-grid{
+.bd-grid {
   max-width: 1024px;
   display: grid;
   grid-template-columns: 100%;
@@ -75,11 +83,12 @@ img{
   left: 0;
   z-index: var(--z-fixed);
   background: linear-gradient(90deg, var(--first-color) 0%, var(--first-color-dark) 100%);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  /* Shadow effect */
 }
 
 /*===== NAV =====*/
-.nav{
+.nav {
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
@@ -87,15 +96,17 @@ img{
 }
 
 .nav__logo img {
-  width: auto; 
-  height: 50px; /* Default height */
-  max-width: 500px; /* Para hindi lumampas */
+  width: auto;
+  height: 50px;
+  /* Default height */
+  max-width: 500px;
+  /* Para hindi lumampas */
 }
 
 /* Adjustments for smaller screens */
 @media screen and (max-width: 768px) {
   .nav__logo img {
-    height: 40px; 
+    height: 40px;
     max-width: 100px;
   }
 }
@@ -107,8 +118,8 @@ img{
   }
 }
 
-@media screen and (max-width: 768px){
-  .nav__menu{
+@media screen and (max-width: 768px) {
+  .nav__menu {
     position: fixed;
     top: 0;
     right: -100%;
@@ -121,7 +132,7 @@ img{
   }
 }
 
-.nav__close{
+.nav__close {
   position: absolute;
   top: .75rem;
   right: 1rem;
@@ -129,41 +140,47 @@ img{
   cursor: pointer;
 }
 
-.nav__item{
+.nav__item {
   margin-bottom: 2rem;
 }
 
-.nav__close, .nav__link, .nav__logo, .nav__toggle{
+.nav__close,
+.nav__link,
+.nav__logo,
+.nav__toggle {
   color: var(--white-color);
 }
 
-.nav__link:hover{
+.nav__link:hover {
   color: var(--first-color);
 }
 
-.nav__toggle{
+.nav__toggle {
   font-size: 1.5rem;
   cursor: pointer;
 }
 
 /*=== Show menu ===*/
-.show{
+.show {
   right: 0;
 }
 
 /* Fix modal centering */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Dim background */
+  background: rgba(0, 0, 0, 0.4);
+  /* Dim background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Make sure it’s on top */
+  z-index: 1000;
+  /* Make sure it’s on top */
 }
 
 /* Modal content styling */
@@ -188,13 +205,16 @@ img{
 }
 
 /* Ensure images don't overlap */
-.cross, .bible {
+.cross,
+.bible {
   position: relative;
-  z-index: 1; /* Keep them below the modal */
+  z-index: 1;
+  /* Keep them below the modal */
 }
 
 /* Adjust homepage text */
-.home__title, .home__description {
+.home__title,
+.home__description {
   position: relative;
   z-index: 1;
 }
@@ -272,21 +292,23 @@ img{
 .input-container i {
   position: absolute;
   top: 50%;
-  left: 10px; /* Icon sa left side */
+  left: 10px;
+  /* Icon sa left side */
   transform: translateY(-50%);
   color: #888;
 }
 
 .input-container input {
   width: 100%;
-  padding: 10px 10px 10px 35px; /* May space para sa icon */
+  padding: 10px 10px 10px 35px;
+  /* May space para sa icon */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
 }
 
 /*===== HOME =====*/
-.home{
+.home {
   background-color: var(--white-color);
   overflow: hidden;
 }
@@ -300,7 +322,8 @@ img{
 .home__img {
   position: relative;
   width: 100%;
-  height: 300px; /* Default height */
+  height: 300px;
+  /* Default height */
 }
 
 /* Set images' basic properties */
@@ -311,7 +334,8 @@ img{
 
 /* Position the Bible on the bottom left of the triangle */
 .bible {
-  max-width: 350px; /* Default size */
+  max-width: 350px;
+  /* Default size */
   bottom: -25%;
   left: 0%;
   transform: translateY(50%);
@@ -327,29 +351,34 @@ img{
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .home__container {
-    height: auto; /* Allow content to determine height */
-    padding-top: 4rem; /* Move content down */
+    height: auto;
+    /* Allow content to determine height */
+    padding-top: 4rem;
+    /* Move content down */
   }
 
   .home__data {
-      padding-top: 3rem; /* Push text down */
+    padding-top: 3rem;
+    /* Push text down */
   }
+
   .home__img {
-      height: 250px; /* Adjust height for smaller screens */
+    height: 250px;
+    /* Adjust height for smaller screens */
   }
 
   .bible {
-      max-width: 220px;
-      width: 22%;
-      bottom: -20%;
-      left: -10%;
+    max-width: 220px;
+    width: 22%;
+    bottom: -20%;
+    left: -10%;
   }
 
   .cross {
-      max-width: 250px;
-      width: 25%;
-      bottom: -25%;
-      right: -5%;
+    max-width: 250px;
+    width: 25%;
+    bottom: -25%;
+    right: -5%;
   }
 }
 
@@ -360,43 +389,46 @@ img{
   }
 
   .home__data {
-      padding-top: 2rem;
+    padding-top: 2rem;
   }
+
   .home__img {
-      height: 200px; /* Adjust height for very small screens */
+    height: 200px;
+    /* Adjust height for very small screens */
   }
 
   .bible {
-      max-width: 300px;
-      width: 50%;
-      bottom: -10%;
-      left: 15%;
+    max-width: 300px;
+    width: 50%;
+    bottom: -10%;
+    left: 15%;
   }
 
   .cross {
-      max-width: 250px;
-      width: 100%;
-      bottom: -15%;
-      right: 15%;
+    max-width: 250px;
+    width: 100%;
+    bottom: -15%;
+    right: 15%;
   }
 }
 
 .home__data {
   color: var(--first-color-darken);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Soft shadow for better readability */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  /* Soft shadow for better readability */
 }
 
-.home__title{
+.home__title {
   font-size: var(--big-font-size);
   line-height: 1;
   margin-bottom: 1rem;
 }
 
-.home__description{
+.home__description {
   margin-bottom: 2.5rem;
 }
 
-.home__button{
+.home__button {
   display: inline-block;
   background-color: var(--first-color-dark);
   color: var(--white-color);
@@ -404,7 +436,7 @@ img{
   border-radius: .5rem;
 }
 
-.home__button:hover{
+.home__button:hover {
   background-color: var(--first-color-darken);
 }
 
@@ -500,7 +532,8 @@ img{
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px 0;
-  justify-items: center; /* Center cards in grid */
+  justify-items: center;
+  /* Center cards in grid */
   max-width: 1200px;
   margin: auto;
 }
@@ -533,51 +566,165 @@ img{
 }
 
 /* Supplication Section */
-.supplication__form {
+.supplication {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 600px;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--white-color);
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 1000px;
+  width: 90%;
   margin: auto;
 }
 
-.supplication__input {
-  padding: 15px;
+.card-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.image-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.bible-image {
+  width: 150%;
+  max-width: 400px;
   border-radius: 10px;
+}
+
+.form-column {
+  flex: 1;
+}
+
+.supplication-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #fff;
   border: 1px solid #ccc;
-  font-size: 1rem;
-  resize: vertical;
+  border-radius: 5px;
+  padding: 10px;
 }
 
-.supplication__button {
-  padding: 15px;
-  border-radius: 10px;
-  background: #222;
-  color: white;
-  font-size: 1.1rem;
-  font-weight: bold;
+.input-group i {
+  margin-right: 10px;
+  background: linear-gradient(150deg, var(--first-color) 0%, var(--first-color-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.input-field {
+  width: 100%;
   border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  outline: none;
+  font-size: 16px;
 }
 
-.supplication__button:hover {
-  background: #444;
+.submit-button {
+  background: var(--first-color-dark);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: var(--first-color-darken);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-column {
+    order: -1;
+  }
+
+  .bible-image {
+    max-width: 200px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .supplication {
+    padding: 1rem; /* Adjust padding for smaller screens */
+  }
+
+  .card {
+    width: 100%;
+    padding: 1rem;
+    box-shadow: none; /* Remove shadow for a more mobile-friendly layout */
+  }
+
+  .card-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Reduce gap between elements */
+  }
+
+  .image-column {
+    order: -1; /* Move the image to the top */
+    justify-content: center;
+  }
+
+  .bible-image {
+    max-width: 250px; /* Resize the image for smaller screens */
+    width: 100%;
+  }
+
+  .form-column {
+    width: 100%;
+  }
+
+  .input-group {
+    padding: 8px; /* Adjust padding for smaller devices */
+  }
+
+  .input-field {
+    font-size: 14px; /* Make the input text smaller */
+  }
+
+  .submit-button {
+    font-size: 14px; /* Make button text smaller */
+    padding: 10px;
+  }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .about__container {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .event__grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 
   .supplication__form {
-      width: 90%;
+    width: 90%;
   }
 }
 
@@ -590,8 +737,10 @@ img{
 
 .footer__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
-  gap: 20px; /* Space between columns */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Responsive columns */
+  gap: 20px;
+  /* Space between columns */
   text-align: left;
 }
 
@@ -625,36 +774,44 @@ img{
 }
 
 .footer p {
-  margin-bottom: 8px; /* Adjusted for better spacing */
+  margin-bottom: 8px;
+  /* Adjusted for better spacing */
   font-size: 14px;
-  line-height: 1.6; /* Improved readability */
+  line-height: 1.6;
+  /* Improved readability */
 }
 
 .footer__contact p,
 .footer__social {
   display: flex;
   align-items: center;
-  gap: 8px; /* Adds spacing between icons and text */
+  gap: 8px;
+  /* Adds spacing between icons and text */
 }
+
 .footer__contact i {
   margin-right: 8px;
   color: var(--first-color-light);
 }
 
 .footer__about {
-  max-width: 300px; /* Limit paragraph width to avoid excessive stretching */
+  max-width: 300px;
+  /* Limit paragraph width to avoid excessive stretching */
 }
 
 .footer__social {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers text and icons */
-  gap: 10px; /* Space between title and icons */
+  align-items: center;
+  /* Centers text and icons */
+  gap: 10px;
+  /* Space between title and icons */
 }
 
 .footer__social-links {
   display: flex;
-  gap: 15px; /* Adds space between social icons */
+  gap: 15px;
+  /* Adds space between social icons */
 }
 
 .footer__social-icon {
@@ -664,7 +821,8 @@ img{
 }
 
 .footer__social-icon:hover {
-  color: #f1c40f; /* Highlight effect on hover */
+  color: #f1c40f;
+  /* Highlight effect on hover */
 }
 
 .footer__bottom {
@@ -685,65 +843,66 @@ img{
 
 
 /* ===== MEDIA QUERIES =====*/
-@media screen and (min-width: 768px){
-  body{
+@media screen and (min-width: 768px) {
+  body {
     margin: 0;
   }
-  
-  .nav{
+
+  .nav {
     height: calc(var(--header-height) + 1.5rem);
   }
 
-  .nav__toggle, .nav__close{
+  .nav__toggle,
+  .nav__close {
     display: none;
   }
 
-  .nav__list{
+  .nav__list {
     display: flex;
   }
 
-  .nav__item{
+  .nav__item {
     margin-left: 3rem;
     margin-bottom: 0;
   }
 
-  .home__container{
+  .home__container {
     height: 100vh;
     grid-template-columns: repeat(2, max-content);
-    grid-template-rows:  1fr;
+    grid-template-rows: 1fr;
     row-gap: 0;
     align-items: center;
     justify-content: center;
   }
-  
-  .home__img{
+
+  .home__img {
     order: 1;
     width: 200px;
     height: 189px;
   }
 
-  .home__img img{
+  .home__img img {
     width: 275px;
   }
 }
 
-@media screen and (min-width: 1024px){
-  .bd-grid{
+@media screen and (min-width: 1024px) {
+  .bd-grid {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .home__container{
+  .home__container {
     justify-content: initial;
     column-gap: 4.5rem;
   }
 
-  .home__img{
+  .home__img {
     width: 404px;
     height: 366px;
   }
 
-  .home__img img{
+  .home__img img {
     width: 604px;
   }
 }
