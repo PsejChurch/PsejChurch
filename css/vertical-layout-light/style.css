@@ -30662,9 +30662,10 @@ div.tagsinput span.tag a {
   transition: 0.3s ease-in-out;
   border-radius: 8px;
   padding: 12px;
+  border: var(--primary);
 }
 .list-group-item:hover, .list-group-item.active {
-  background-color: #007bff;
+  background-color: var(--primary);
   color: white;
 }
 .fade-content {

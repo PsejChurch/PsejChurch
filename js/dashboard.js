@@ -900,8 +900,40 @@ function searchEvents() {
 
 function showSetting(setting, element) {
   let content = {
-      adminInfo: `<h5 class="card-title"><i class="ti-user"></i> Admin Information</h5>
-                  <p class="card-text">Manage admin details, email, and contact information.</p>`,
+      adminInfo: `
+        <h5 class="card-title"><i class="ti-user"></i> Admin Information</h5>
+        <p class="card-text">Manage admin details, email, and contact information.</p>
+        
+        <form id="adminInfoForm">
+            <div class="mb-3">
+                <label for="adminName" class="form-label"><i class="ti-user"></i> Full Name</label>
+                <input type="text" class="form-control" id="adminName" placeholder="Enter full name" value="John Doe">
+            </div>
+
+            <div class="mb-3">
+                <label for="adminEmail" class="form-label"><i class="ti-email"></i> Email Address</label>
+                <input type="email" class="form-control" id="adminEmail" placeholder="Enter email" value="admin@example.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="adminPhone" class="form-label"><i class="ti-mobile"></i> Phone Number</label>
+                <input type="text" class="form-control" id="adminPhone" placeholder="Enter phone number" value="+1234567890">
+            </div>
+
+            <div class="mb-3">
+                <label for="adminRole" class="form-label"><i class="ti-id-badge"></i> Role</label>
+                <select class="form-control" id="adminRole">
+                    <option selected>Administrator</option>
+                    <option>Super Admin</option>
+                    <option>Editor</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="saveAdminInfo()">
+                <i class="ti-save"></i> Save Changes
+            </button>
+        </form>
+      `,
 
       privacySecurity: `<h5 class="card-title"><i class="ti-lock"></i> Privacy & Security</h5>
                         <p class="card-text">Control who can access your settings and secure your account.</p>`,
@@ -926,3 +958,63 @@ function showSetting(setting, element) {
   document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
   element.classList.add("active");
 }
+
+function saveAdminInfo() {
+  let name = document.getElementById("adminName").value;
+  let email = document.getElementById("adminEmail").value;
+  let phone = document.getElementById("adminPhone").value;
+  let role = document.getElementById("adminRole").value;
+
+  // Use AlertifyJS to display the success message with customized styling
+  alertify.success(`
+    <strong>Admin Info Updated!</strong>
+  `);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Sample real data
+  const attendanceData = [
+      { name: "Juan Dela Cruz", chapter: "North Chapter", time: "March 27, 2025 - 10:00 AM" },
+      { name: "Maria Santos", chapter: "South Chapter", time: "March 27, 2025 - 10:05 AM" },
+      { name: "Pedro Ramirez", chapter: "East Chapter", time: "March 27, 2025 - 10:15 AM" },
+      { name: "Ana Mendoza", chapter: "West Chapter", time: "March 27, 2025 - 10:30 AM" },
+  ];
+
+  // Populate the attendance table with real data
+  const attendanceBody = document.getElementById("attendance-body");
+  attendanceData.forEach((data) => {
+      const row = document.createElement("tr");
+      row.dataset.name = data.name;
+      row.innerHTML = `
+          <td>${data.name}</td>
+          <td class="font-weight-bold">${data.chapter}</td>
+          <td>${data.time}</td>
+          <td><button class="btn btn-success mark-present">Mark as Present</button></td>
+      `;
+      attendanceBody.appendChild(row);
+  });
+
+  // Event listener for "Mark as Present" button
+  document.querySelectorAll(".mark-present").forEach(button => {
+      button.addEventListener("click", function () {
+          const row = this.closest("tr"); // Find the closest row to the button
+          const name = row.cells[0].innerText;  // Get the Name from the row
+          const chapter = row.cells[1].innerText;  // Get the Chapter
+          const time = row.cells[2].innerText;  // Get the Time
+
+          // Remove row from the attendance table
+          row.remove();
+
+          // Append the row to the Present Members Table
+          const newRow = `<tr>
+              <td>${name}</td>
+              <td>${chapter}</td>
+              <td>${time}</td>
+          </tr>`;
+          document.getElementById("present-body").insertAdjacentHTML("beforeend", newRow);
+      });
+  });
+});
+
+
+

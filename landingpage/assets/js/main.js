@@ -72,10 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // Simplified usernames and passwords
       const users = {
         "admin": { password: "admin", redirect: "maindash.html" },
-        "chapter": { password: "chapter", redirect: "chapter-dashboard.html" },
-        "secret": { password: "secret", redirect: "secretariat-dashboard.html" },
-        "account": { password: "account", redirect: "accounting-dashboard.html" },
-        "member": { password: "member", redirect: "member-dashboard.html" },
+        "chapter": { password: "chapter", redirect: "pages/AuthorizeUsers/chapter-dashboard.html" },
+        "secret": { password: "secret", redirect: "pages/AuthorizeUsers/secretariat-dashboard.html" },
+        "account": { password: "account", redirect: "pages/AuthorizeUsers/accounting-dashboard.html" },
+        "member": { password: "member", redirect: "pages/AuthorizeUsers/member-dashboard.html" },
         "visitor": { password: "visitor", redirect: "visitor-page.html" },
       };
 

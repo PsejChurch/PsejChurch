@@ -29,7 +29,7 @@ $(function () {
 // Options para kontrolin ang chart
 var options = {
     responsive: true,
-    maintainAspectRatio: false, // Para kontrolin ang height
+    maintainAspectRatio: true, // Para kontrolin ang height
     scales: {
         y: {
             beginAtZero: true, // Start sa zero sa y-axis
@@ -39,9 +39,6 @@ var options = {
 
 // Kailangan naka-wrap sa <canvas id="lineChart"></canvas>
 var ctx = document.getElementById("lineChart").getContext("2d");
-
-// Set height manually
-ctx.canvas.parentNode.style.height = "550px"; // Adjust kung kailangan ng mas mataas
 
 new Chart(ctx, {
     type: "line",
@@ -94,39 +91,34 @@ new Chart(ctx, {
       },
     },
   };
+
   var doughnutPieData = {
     datasets: [
       {
-        data: [30, 40, 30],
+        data: [100, 30],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.5)",
-          "rgba(54, 162, 235, 0.5)",
-          "rgba(255, 206, 86, 0.5)",
-          "rgba(75, 192, 192, 0.5)",
-          "rgba(153, 102, 255, 0.5)",
-          "rgba(255, 159, 64, 0.5)",
+          "rgba(255, 71, 71, 0.5)",  // Present - your preferred red
+          "rgba(54, 162, 235, 0.5)" // Absent - blue
+
         ],
         borderColor: [
-          "rgba(255,99,132,1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
+          "rgba(255, 71, 71, 1)",
+          "rgba(54, 162, 235, 1)"
         ],
-      },
+        borderWidth: 2
+      }
     ],
-
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: ["Pink", "Blue", "Yellow"],
+    labels: ["Present", "Absent"]
   };
+  
   var doughnutPieOptions = {
     responsive: true,
     animation: {
       animateScale: true,
-      animateRotate: true,
-    },
+      animateRotate: true
+    }
   };
+  
   var areaData = {
     labels: ["2013", "2014", "2015", "2016", "2017"],
     datasets: [
