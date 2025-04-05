@@ -1066,7 +1066,7 @@ function showChapter(chapter, element) {
     "R10 Tondo": `<h5 class="card-title"><i class="ti-clipboard"></i> R10 Tondo</h5>` + generateTable('R10 Tondo'),
     "Cavite": `<h5 class="card-title"><i class="ti-clipboard"></i> Cavite</h5>` + generateTable('Cavite'),
     "Galas Balagtas": `<h5 class="card-title"><i class="ti-clipboard"></i> Galas Balagtas</h5>` + generateTable('Galas Balagtas'),
-    "San Jose Plaridel": `<h5 class="card-title"><i class="ti-clipboard"></i> San Jose Plaridel</h5>` + generateTable('San Jose Plaridel'),
+    "Malolos": `<h5 class="card-title"><i class="ti-clipboard"></i> Malolos</h5>` + generateTable('Malolos'),
   };
 
   let contentDiv = document.getElementById("chapterContent");
@@ -1299,7 +1299,7 @@ function generateTable(chapter) {
         </td>
       </tr>
     `;
-  } else if (chapter === 'San Jose Plaridel') {
+  } else if (chapter === 'Malolos') {
     tableRows = `
       <tr>
         <td>₱600</td>
