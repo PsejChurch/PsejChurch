@@ -212,72 +212,184 @@
                                         <div class="col-12 col-md-4 mb-3">
                                             <h5 class="mb-3"><i class="ti-book"></i> Tithes & Offerings</h5>
                                             <div class="list-group">
-                                                <button class="list-group-item list-group-item-action active" onclick="showTithesAndOfferings('Love Gifts to Pastors', this)">Love Gifts to Pastors</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Love Gifts to Music Team', this)">Love Gifts to Music Team</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Tithes', this)">Tithes</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Offerings', this)">Offerings</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Electricity Bill', this)">Electricity Bill</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Rental', this)">Rental</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Church Maintenance', this)">Church Maintenance</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Sound System Fund', this)">Sound System Fund</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Building Fund', this)">Building Fund</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Miscellaneous', this)">Miscellaneous</button>
-                                                <button class="list-group-item list-group-item-action" onclick="showTithesAndOfferings('Transport Fund', this)">Transport Fund</button>
+                                                <button class="list-group-item list-group-item-action active"
+                                                    onclick="showTithesAndOfferings('Love Gifts to Pastors', this)">Love
+                                                    Gifts to Pastors</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Love Gifts to Music Team', this)">Love
+                                                    Gifts to Music Team</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Tithes', this)">Tithes</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Offerings', this)">Offerings</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Electricity Bill', this)">Electricity
+                                                    Bill</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Rental', this)">Rental</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Church Maintenance', this)">Church
+                                                    Maintenance</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Sound System Fund', this)">Sound
+                                                    System Fund</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Building Fund', this)">Building
+                                                    Fund</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Miscellaneous', this)">Miscellaneous</button>
+                                                <button class="list-group-item list-group-item-action"
+                                                    onclick="showTithesAndOfferings('Transport Fund', this)">Transport
+                                                    Fund</button>
                                             </div>
                                         </div>
-                                    
+
                                         <!-- Tithes & Offerings Section -->
                                         <div class="col-12 col-md-8">
-                                            <div class="p-3">
-                                                <div id="tithesOfferingsContent" class="fade-content show">
-                                                    <h5 class="card-title"><i class="ti-clipboard"></i> Tithes & Offerings</h5>
-                                                    <div class="table-responsive">
-                                                        <table class="table table-striped table-hover">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Amount</th>
-                                                                    <th>Description</th>
-                                                                    <th>Status</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody id="tithesOfferingsTable">
-                                                                <tr>
-                                                                    <td>₱2,000</td>
-                                                                    <td>Donation</td>
-                                                                    <td>Collected</td>
-                                                                    <td>
-                                                                        <select class="form-select" onchange="updateStatus(this)">
-                                                                            <option selected>Collected</option>
-                                                                            <option>Bank Deposit</option>
-                                                                        </select>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>₱1,500</td>
-                                                                    <td>Donation</td>
-                                                                    <td>Bank Deposit</td>
-                                                                    <td>
-                                                                        <select class="form-select" onchange="updateStatus(this)">
-                                                                            <option>Collected</option>
-                                                                            <option selected>Bank Deposit</option>
-                                                                        </select>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h5 class="card-title"><i class="ti-clipboard"></i> Tithes & Offerings
+                                                </h5>
+                                                <!-- Add Button -->
+                                                <button type="button" class="btn btn-primary mb-3" data-toggle="modal"
+                                                    data-target="#addTithesModal">
+                                                    <i class="ti-write mr-1"></i> Add Entry
+                                                </button>
+
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Amount</th>
+                                                            <th>Description</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="tithesOfferingsTable">
+                                                        <tr>
+                                                            <td>₱2,000</td>
+                                                            <td>Donation</td>
+                                                            <td>Collected</td>
+                                                            <td>
+                                                                <select class="form-select"
+                                                                    onchange="updateStatus(this)">
+                                                                    <option selected>Collected</option>
+                                                                    <option>Bank Deposit</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>₱1,500</td>
+                                                            <td>Donation</td>
+                                                            <td>Bank Deposit</td>
+                                                            <td>
+                                                                <select class="form-select"
+                                                                    onchange="updateStatus(this)">
+                                                                    <option>Collected</option>
+                                                                    <option selected>Bank Deposit</option>
+                                                                </select>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
+                    <!-- Add Tithes Modal -->
+                    <div class="modal fade" id="addTithesModal" tabindex="-1" role="dialog"
+                        aria-labelledby="addTithesModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addTithesModalLabel">Add Tithes & Offering Entry</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form id="addTithesForm">
+                                        <div class="form-row">
+                                            <!-- Left Column -->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="donorType">Donor Type</label>
+                                                    <select class="form-control" id="donorType" required>
+                                                        <option selected disabled>Select Type</option>
+                                                        <option>Individual Member</option>
+                                                        <option>Visitor</option>
+                                                        <option>Pastor</option>
+                                                        <option>Anonymous</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="donorName">Name</label>
+                                                    <input type="text" class="form-control" id="donorName"
+                                                        placeholder="Enter name">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="amount">Amount</label>
+                                                    <input type="number" class="form-control" id="amount"
+                                                        placeholder="₱0.00" required>
+                                                </div>
+                                            </div>
+
+                                            <!-- Right Column -->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="event">Event</label>
+                                                    <input type="text" class="form-control" id="event"
+                                                        placeholder="e.g. Church Anniversary">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="purpose">Purpose</label>
+                                                    <select class="form-control" id="purpose" required>
+                                                        <option selected disabled>Select Purpose</option>
+                                                        <option>Tithes & Offering</option>
+                                                        <option>Registration Fee</option>
+                                                        <option>Donation</option>
+                                                        <option>Rental</option>
+                                                        <option>Electricity Bill</option>
+                                                        <option>Love Gifts to Pastors</option>
+                                                        <option>Love Gifts to Music Team</option>
+                                                        <option>Church Maintenance</option>
+                                                        <option>Sound System Fund</option>
+                                                        <option>Building Fund</option>
+                                                        <option>Transport Fund</option>
+                                                        <option>Miscellaneous</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="status">Status</label>
+                                                    <select class="form-control" id="status" required>
+                                                        <option selected>Collected</option>
+                                                        <option>Bank Deposit</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" id="saveEntryBtn">Save Entry</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <!-- content-wrapper ends -->
@@ -339,50 +451,77 @@
             });
     </script>
 
-<script>
-    function showTithesAndOfferings(offerings, element) {
-    const offeringsData = {
-        'Love Gifts to Pastors': [
-            { amount: '₱2,000', description: 'Donation', status: 'Collected' },
-            { amount: '₱1,500', description: 'Donation', status: 'Bank Deposit' }
-        ],
-        'Love Gifts to Music Team': [
-            { amount: '₱1,000', description: 'Donation', status: 'Collected' },
-            { amount: '₱500', description: 'Donation', status: 'Bank Deposit' }
-        ],
-        'Tithes': [
-            { amount: '₱3,000', description: 'Tithes', status: 'Collected' },
-            { amount: '₱1,200', description: 'Tithes', status: 'Bank Deposit' }
-        ],
-        'Offerings': [
-            { amount: '₱1,000', description: 'Offering', status: 'Collected' }
-        ],
-        'Electricity Bill': [
-            { amount: '₱5,000', description: 'Electricity', status: 'Paid' }
-        ],
-        'Rental': [
-            { amount: '₱8,000', description: 'Rental', status: 'Paid' }
-        ],
-        'Church Maintenance': [
-            { amount: '₱3,500', description: 'Maintenance', status: 'Completed' }
-        ],
-        'Sound System Fund': [
-            { amount: '₱10,000', description: 'Sound System', status: 'Collected' }
-        ],
-        'Building Fund': [
-            { amount: '₱15,000', description: 'Building', status: 'Collected' }
-        ],
-        'Miscellaneous': [
-            { amount: '₱1,500', description: 'Miscellaneous', status: 'Paid' }
-        ],
-        'Transport Fund': [
-            { amount: '₱2,000', description: 'Transport', status: 'Paid' }
-        ]
-    };
+    <script>
+        // Make sure the save button works
+        document.getElementById("saveEntryBtn").addEventListener("click", function () {
+            var donorType = document.getElementById("donorType").value;
+            var donorName = document.getElementById("donorName").value;
+            var amount = document.getElementById("amount").value;
+            var event = document.getElementById("event").value;
+            var purpose = document.getElementById("purpose").value;
+            var status = document.getElementById("status").value;
 
-    let tableRows = '';
-    offeringsData[offerings].forEach(item => {
-        tableRows += `
+            // Simple validation
+            if (donorType && donorName && amount && event && purpose && status) {
+                // Show success message
+                alertify.success('Added successfully!');
+
+                // Close the modal
+                $('#addTithesModal').modal('hide');
+
+                // Optionally clear the form fields after saving
+                document.getElementById("addTithesForm").reset();
+            } else {
+                // Show error message if validation fails
+                alertify.error('Please fill in all fields!');
+            }
+        });
+    </script>
+
+    <script>
+        function showTithesAndOfferings(offerings, element) {
+            const offeringsData = {
+                'Love Gifts to Pastors': [
+                    { amount: '₱2,000', description: 'Donation', status: 'Collected' },
+                    { amount: '₱1,500', description: 'Donation', status: 'Bank Deposit' }
+                ],
+                'Love Gifts to Music Team': [
+                    { amount: '₱1,000', description: 'Donation', status: 'Collected' },
+                    { amount: '₱500', description: 'Donation', status: 'Bank Deposit' }
+                ],
+                'Tithes': [
+                    { amount: '₱3,000', description: 'Tithes', status: 'Collected' },
+                    { amount: '₱1,200', description: 'Tithes', status: 'Bank Deposit' }
+                ],
+                'Offerings': [
+                    { amount: '₱1,000', description: 'Offering', status: 'Collected' }
+                ],
+                'Electricity Bill': [
+                    { amount: '₱5,000', description: 'Electricity', status: 'Paid' }
+                ],
+                'Rental': [
+                    { amount: '₱8,000', description: 'Rental', status: 'Paid' }
+                ],
+                'Church Maintenance': [
+                    { amount: '₱3,500', description: 'Maintenance', status: 'Completed' }
+                ],
+                'Sound System Fund': [
+                    { amount: '₱10,000', description: 'Sound System', status: 'Collected' }
+                ],
+                'Building Fund': [
+                    { amount: '₱15,000', description: 'Building', status: 'Collected' }
+                ],
+                'Miscellaneous': [
+                    { amount: '₱1,500', description: 'Miscellaneous', status: 'Paid' }
+                ],
+                'Transport Fund': [
+                    { amount: '₱2,000', description: 'Transport', status: 'Paid' }
+                ]
+            };
+
+            let tableRows = '';
+            offeringsData[offerings].forEach(item => {
+                tableRows += `
             <tr>
                 <td>${item.amount}</td>
                 <td>${item.description}</td>
@@ -397,28 +536,28 @@
                 </td>
             </tr>
         `;
-    });
+            });
 
-    const sectionTitle = document.querySelector("#tithesOfferingsContent .card-title");
-    sectionTitle.innerHTML = `<i class="ti-clipboard"></i> ${offerings}`;
+            const sectionTitle = document.querySelector("#tithesOfferingsContent .card-title");
+            sectionTitle.innerHTML = `<i class="ti-clipboard"></i> ${offerings}`;
 
-    const contentElement = document.getElementById("tithesOfferingsContent");
+            const contentElement = document.getElementById("tithesOfferingsContent");
 
-    contentElement.classList.remove('fade', 'show');
-    setTimeout(() => {
-        document.getElementById("tithesOfferingsTable").innerHTML = tableRows;
-        contentElement.classList.add('fade', 'show');
-    }, 300);
+            contentElement.classList.remove('fade', 'show');
+            setTimeout(() => {
+                document.getElementById("tithesOfferingsTable").innerHTML = tableRows;
+                contentElement.classList.add('fade', 'show');
+            }, 300);
 
-    document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
-    element.classList.add("active");
-}
+            document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
+            element.classList.add("active");
+        }
 
-window.onload = function() {
-    const defaultButton = document.querySelector(".list-group-item");
-    showTithesAndOfferings("Love Gifts to Pastors", defaultButton);
-};
-</script>
+        window.onload = function () {
+            const defaultButton = document.querySelector(".list-group-item");
+            showTithesAndOfferings("Love Gifts to Pastors", defaultButton);
+        };
+    </script>
 
 
     <!-- plugins:js -->
