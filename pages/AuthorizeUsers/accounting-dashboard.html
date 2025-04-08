@@ -28,9 +28,10 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo mr-5" href="accounting-dashboard.html"><img src="../../images/LOGO PSEJ.png" class="mr-2"
-                        alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="accounting-dashboard.html"><img src="../../images/logo.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo mr-5" href="accounting-dashboard.html"><img
+                        src="../../images/LOGO PSEJ.png" class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="accounting-dashboard.html"><img
+                        src="../../images/logo.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -193,14 +194,12 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 grid-margin stretch-card">
-                            <div class="card tale-bg">
+                            <div class="card digital-clock-container">
                                 <div class="card-people mt-auto text-center">
-                                    <div
-                                        class="time-info d-flex flex-wrap justify-content-center align-items-center text-center">
-                                        <i class="ti-timer text-primary mr-2" style="font-size: 2rem;"></i>
-                                        <!-- Clock Icon -->
-                                        <h2 id="current-time" class="mb-0 font-weight-bold"></h2>
-                                        <span class="ml-3 text-muted location-text">| Bulacan, Philippines</span>
+                                    <div class="">
+                                        <div class="digital-time" id="digital-time">08:37 <span class="ampm">PM</span>
+                                        </div>
+                                        <div class="digital-date" id="digital-date">Mar, Sunday 6</div>
                                     </div>
                                 </div>
                             </div>
@@ -226,7 +225,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            
+
                                 <!-- Financial Summary -->
                                 <div class="col-md-6 mb-4 stretch-card transparent">
                                     <div class="card card-dark-blue">
@@ -245,7 +244,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
 
                     </div>
@@ -273,8 +272,8 @@
                                     <p class="font-weight-500">The total number of sessions within the date range. It is
                                         the period time a
                                         user is actively engaged with your website, page or app, etc</p>
-                                        <canvas id="order-chart"></canvas>
-                                        <div id="chart-legend" class="chart-legend"></div>
+                                    <canvas id="order-chart"></canvas>
+                                    <div id="chart-legend" class="chart-legend"></div>
                                 </div>
                             </div>
                         </div>
@@ -303,15 +302,6 @@
     <!-- container-scroller -->
 
     <script>
-        function updateClock() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-            document.getElementById("current-time").innerText = timeString;
-        }
-
-        setInterval(updateClock, 1000);
-        updateClock();
-
         document.getElementById("saveEvent").addEventListener("click", function () {
             let chapter = document.getElementById("eventChapter").value;
             let title = document.getElementById("eventTitle").value;
@@ -335,8 +325,29 @@
     </script>
 
     <script>
-   
-      </script>
+        function updateDigitalClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12 || 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+            const month = now.toLocaleDateString('en-US', { month: 'short' });
+            const date = now.getDate();
+
+            document.getElementById("digital-time").innerHTML = `${timeString} <span class="ampm">${ampm}</span>`;
+            document.getElementById("digital-date").textContent = `${month}, ${day} ${date}`;
+        }
+
+        setInterval(updateDigitalClock, 1000);
+        updateDigitalClock();
+    </script>
 
     <!-- plugins:js -->
     <script src="../../vendors/js/vendor.bundle.base.js"></script>

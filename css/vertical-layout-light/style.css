@@ -30691,4 +30691,238 @@ div.tagsinput span.tag a {
   transform: translateY(-50%);
 }
 
+.btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #d9534f;
+}
+
+.btn-success:hover {
+  background-color: #5cb85c;
+}
+
+.btn-secondary:hover {
+  background-color: #6c757d;
+}
+
+.modal-dialog {
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+/* MOBILE view - full width modal */
+@media (max-width: 767px) {
+  .modal-dialog {
+    margin: 1rem;
+    max-width: 100%;
+  }
+
+  .modal-content {
+    border-radius: 10px;
+  }
+}
+
+/* DESKTOP view - limited width modal */
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 1000px; /* or 500px */
+    margin: 1.75rem auto;
+  }
+}
+
+/* Optional: Extra tweaks for screens ≤ 425px */
+@media (max-width: 425px) {
+  .card-body {
+      padding: 1rem;
+  }
+  .form-label {
+      font-size: 0.9rem;
+  }
+  .form-control, .form-select {
+      font-size: 0.9rem;
+  }
+  table td, table th {
+      font-size: 0.85rem;
+  }
+  .btn {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+  }
+}
+
+/* Control table row height */
+#memberTableBody td,
+#memberTableBody th {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    vertical-align: middle;
+}
+
+/* Optional: Shrink font a little for compact feel */
+#memberTableBody td {
+    font-size: 0.95rem;
+}
+
+.digital-clock-container {
+  background: linear-gradient(145deg, #1e1e2f, #2a2a3d);
+  padding: 25px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+.digital-time {
+  font-size: 4rem;
+  font-weight: bold;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ampm {
+  font-size: 1.5rem;
+  color: white;
+  -webkit-text-fill-color: initial;
+}
+
+.digital-date {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #7DA0FA;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+@media (max-width: 768px) {
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+  table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+  }
+  table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+}
+
+.table-scroll-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+}
+
+ /* Calendar Container */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.calendar-month {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  flex: 1 1 100%;
+}
+
+/* Calendar Grid - Always 7 columns */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+/* Day Headers & Cells */
+.calendar-day,
+.calendar-cell {
+  text-align: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  font-size: 1rem;
+  min-height: 60px;
+}
+
+.calendar-day {
+  font-weight: bold;
+  background-color: #ddd;
+}
+
+/* Calendar Cells */
+.calendar-cell {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.calendar-cell:hover {
+  background-color: #e2e2e2;
+}
+
+.calendar-cell.today {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-cell.selected {
+  background-color: #28a745;
+  color: white;
+}
+
+.empty {
+  background-color: transparent;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .calendar-cell,
+  .calendar-day {
+    font-size: 0.9rem;
+    padding: 8px;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-cell,
+  .calendar-day {
+    font-size: 0.75rem;
+    padding: 6px;
+    min-height: 40px;
+  }
+
+  .calendar-month {
+    font-size: 1.2rem;
+  }
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

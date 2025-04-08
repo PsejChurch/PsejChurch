@@ -1352,5 +1352,184 @@ function updateStatus(selectElement) {
   alertify.success(`Status updated to: ${newStatus}`);
 }
 
+function showSetting(setting, element) {
+  let content = {
+      memberInfo: `
+        <h5 class="card-title"><i class="ti-user"></i> Member Information</h5>
+        <p class="card-text">Manage your personal and membership details.</p>
+        
+        <form id="memberInfoForm">
+            <div class="mb-3">
+                <label for="memberName" class="form-label"><i class="ti-user"></i> Full Name</label>
+                <input type="text" class="form-control" id="memberName" placeholder="Enter full name" value="Juan Dela Cruz">
+            </div>
+
+            <div class="mb-3">
+                <label for="memberEmail" class="form-label"><i class="ti-email"></i> Email Address</label>
+                <input type="email" class="form-control" id="memberEmail" placeholder="Enter email" value="juan@example.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="memberPhone" class="form-label"><i class="ti-mobile"></i> Phone Number</label>
+                <input type="text" class="form-control" id="memberPhone" placeholder="Enter phone number" value="+639123456789">
+            </div>
+
+            <div class="mb-3">
+                <label for="memberBirthday" class="form-label"><i class="ti-calendar"></i> Birthday</label>
+                <input type="date" class="form-control" id="memberBirthday">
+            </div>
+
+            <div class="mb-3">
+                <label for="membershipStatus" class="form-label"><i class="ti-id-badge"></i> Membership Status</label>
+                <select class="form-control" id="membershipStatus">
+                    <option selected>Member</option>
+                    <option>New Member</option>
+                    <option>Visitor</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="saveMemberInfo()">
+                <i class="ti-save"></i> Save Changes
+            </button>
+        </form>
+      `,
+
+      privacySecurity: `<h5 class="card-title"><i class="ti-lock"></i> Privacy & Security</h5>
+                        <p class="card-text">Control who can access your settings and secure your account.</p>`,
+      
+      activityLogs: `<h5 class="card-title"><i class="ti-time"></i> Activity Logs</h5>
+                     <p class="card-text">View recent actions performed by users in the system.</p>`
+  };
+
+  // Add fade-out effect before changing content
+  let contentDiv = document.getElementById("settingsContent");
+  contentDiv.classList.remove("show");
+
+  setTimeout(() => {
+      contentDiv.innerHTML = content[setting];
+      contentDiv.classList.add("show");
+  }, 300);
+
+  // Remove 'active' from all buttons
+  document.querySelectorAll(".list-group-item").forEach(btn => btn.classList.remove("active"));
+  element.classList.add("active");
+}
+
+function saveMemberInfo() {
+  let name = document.getElementById("memberName").value;
+  let email = document.getElementById("memberEmail").value;
+  let phone = document.getElementById("memberPhone").value;
+  let birthday = document.getElementById("memberBirthday").value;
+  let status = document.getElementById("membershipStatus").value;
+
+  // Use AlertifyJS to display the success message with customized styling
+  alertify.success(`
+    <strong>Member Info Updated!</strong>`);
+}
+
+let currentPage = 1;
+const rowsPerPage = 10;
+
+function searchTable() {
+    const input = document.getElementById("searchInput");
+    const filter = input.value.toLowerCase();
+    const rows = document.querySelectorAll("#attendanceTableBody tr");
+
+    let visibleRows = 0;
+
+    // Loop through the rows and check if the search term matches Date/Time or Event
+    rows.forEach(row => {
+        const date = row.cells[0].textContent.toLowerCase();  // Date & Time column
+        const event = row.cells[1].textContent.toLowerCase(); // Event column
+        if (date.includes(filter) || event.includes(filter)) {
+            row.style.display = ""; // Show row
+            visibleRows++;
+        } else {
+            row.style.display = "none"; // Hide row
+        }
+    });
+
+    paginateTable(visibleRows);
+}
+
+function paginateTable(filteredRowsCount = null) {
+    const rows = Array.from(document.querySelectorAll("#attendanceTableBody tr"));
+    const totalRows = filteredRowsCount !== null ? filteredRowsCount : rows.length;
+    const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+
+    // Loop through rows and show/hide based on pagination
+    rows.forEach((row, index) => {
+        if (index >= startIndex && index < endIndex) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    updatePaginationButtons(totalPages);
+}
+
+function updatePaginationButtons(totalPages) {
+    const paginationLinks = document.querySelector("#pagination");
+    paginationLinks.innerHTML = "";
+
+    // Previous page button
+    paginationLinks.innerHTML += `<li class="page-item ${currentPage === 1 ? 'disabled' : ''}" id="prevPage">
+                                    <a class="page-link" href="#">Previous</a>
+                                  </li>`;
+
+    // Page number buttons
+    for (let i = 1; i <= totalPages; i++) {
+        paginationLinks.innerHTML += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                                        <a class="page-link" href="#">${i}</a>
+                                      </li>`;
+    }
+
+    // Next page button
+    paginationLinks.innerHTML += `<li class="page-item ${currentPage === totalPages ? 'disabled' : ''}" id="nextPage">
+                                    <a class="page-link" href="#">Next</a>
+                                  </li>`;
+
+    // Add event listeners for page change
+    document.querySelectorAll('.page-item').forEach(page => {
+        page.addEventListener("click", function (e) {
+            if (e.target.tagName.toLowerCase() === "a") {
+                const pageNumber = parseInt(e.target.textContent);
+                if (pageNumber) {
+                    currentPage = pageNumber;
+                    paginateTable();
+                }
+            }
+        });
+    });
+
+    // Event listener for "Previous" and "Next" buttons
+    document.querySelector("#prevPage").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            paginateTable();
+        }
+    });
+
+    document.querySelector("#nextPage").addEventListener("click", () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            paginateTable();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    paginateTable();  // Initialize pagination on page load
+
+    // Attach search input listener
+    document.querySelector("#searchInput").addEventListener("input", () => {
+        searchTable();  // Trigger search function on input
+    });
+});
+
 // 
 
