@@ -62,33 +62,6 @@ closeBtn.addEventListener('click', function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginForm = document.getElementById("login-form");
-
-    loginForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent page refresh
-
-      const username = document.getElementById("username").value.trim().toLowerCase();
-      const password = document.getElementById("password").value.trim();
-
-      // Simplified usernames and passwords
-      const users = {
-        "admin": { password: "admin", redirect: "maindash.html" },
-        "chapter": { password: "chapter", redirect: "pages/AuthorizeUsers/chapter-dashboard.html" },
-        "secret": { password: "secret", redirect: "pages/AuthorizeUsers/secretariat-dashboard.html" },
-        "account": { password: "account", redirect: "pages/AuthorizeUsers/accounting-dashboard.html" },
-        "member": { password: "member", redirect: "pages/AuthorizeUsers/member-dashboard.html" },
-        "tithes": { password: "tithes", redirect: "pages/AuthorizeUsers/tithes-dashboard.html" }
-      };
-
-      if (users[username] && users[username].password === password) {
-        window.location.href = users[username].redirect; // Redirect based on role
-      } else {
-        alert("Invalid username or password!"); // Show error message
-      }
-    });
-  });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("login-form");
     const forgotPasswordForm = document.getElementById("forgot-password-form");
     const verificationForm = document.getElementById("verification-form");
     const forgotPasswordLink = document.getElementById("forgot-password-link");
