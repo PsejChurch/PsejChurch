@@ -59,7 +59,7 @@
             <div id="login-form">
                 <h2>Sign in to Your Account</h2>
                 <p>Enter your credentials to access your dashboard.</p>
-                <form>
+                <form action="" method="POST">
                     <div class="input-container">
                         <i class="fa-solid fa-user"></i>
                         <input type="text" id="username" placeholder="Username" required>
