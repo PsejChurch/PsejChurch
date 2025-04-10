@@ -2,54 +2,46 @@
 session_start();
 include('config/dbcon.php');
 
-// Ensure the user is logged in
-if (!isset($_SESSION['username'])) {
-    header('Location: index.php');
-    exit;
-}
+// Show landing page only to guests
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $query = "SELECT role FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $query);
 
-// Get the username from session
-$username = $_SESSION['username'];
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+        $role = $user['role'];
 
-// Fetch user details from the database based on the session username
-$query = "SELECT role FROM users WHERE username = '$username'";
-$result = mysqli_query($conn, $query);
-
-// If user exists
-if ($result && mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    $role = $user['role'];
-
-    // Redirect based on the user's role
-    if ($role == 'admin') {
-        header('Location: maindash.html'); // Admin page
-        exit;
-    } elseif ($role == 'chapter') {
-        header('Location: pages/AuthorizeUsers/chapter-dashboard.html'); // Chapter page
-        exit;
-    } elseif ($role == 'secret') {
-        header('Location: pages/AuthorizeUsers/secretariat-dashboard.html'); // Secret page
-        exit;
-    } elseif ($role == 'account') {
-        header('Location: pages/AuthorizeUsers/accounting-dashboard.html'); // Account page
-        exit;
-    } elseif ($role == 'member') {
-        header('Location: pages/AuthorizeUsers/member-dashboard.html'); // Member page
-        exit;
-    } elseif ($role == 'tithes') {
-        header('Location: pages/AuthorizeUsers/tithes-dashboard.html'); // Tithes page
+        switch ($role) {
+            case 'admin':
+                header('Location: maindash.html');
+                break;
+            case 'chapter':
+                header('Location: pages/AuthorizeUsers/chapter-dashboard.html');
+                break;
+            case 'secret':
+                header('Location: pages/AuthorizeUsers/secretariat-dashboard.html');
+                break;
+            case 'account':
+                header('Location: pages/AuthorizeUsers/accounting-dashboard.html');
+                break;
+            case 'member':
+                header('Location: pages/AuthorizeUsers/member-dashboard.html');
+                break;
+            case 'tithes':
+                header('Location: pages/AuthorizeUsers/tithes-dashboard.html');
+                break;
+            default:
+                $_SESSION['error'] = "Role not recognized!";
+                header('Location: index.php');
+                break;
+        }
         exit;
     } else {
-        // Redirect if role is not recognized
-        $_SESSION['error'] = "Role not recognized!";
+        $_SESSION['error'] = "User not found!";
         header('Location: index.php');
         exit;
     }
-} else {
-    // User does not exist in the database
-    $_SESSION['error'] = "User not found!";
-    header('Location: index.php');
-    exit;
 }
 ?>
 
@@ -114,15 +106,15 @@ if ($result && mysqli_num_rows($result) > 0) {
             <div id="login-form">
                 <h2>Sign in to Your Account</h2>
                 <p>Enter your credentials to access your dashboard.</p>
-                <form action="" method="POST">
+                <form action="config/login.php" method="POST">
                     <div class="input-container">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" id="username" placeholder="Username" required>
+                        <input type="text" id="username" name="username" placeholder="Username" required>
                     </div>
 
                     <div class="input-container">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" id="password" placeholder="Password" required>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
                     </div>
 
                     <button type="submit">Login</button>

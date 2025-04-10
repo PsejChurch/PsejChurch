@@ -1,4 +1,7 @@
 <?php
+session_start();
+include('dbcon.php');
+
 // Handle POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = strtolower(trim($_POST["username"]));
