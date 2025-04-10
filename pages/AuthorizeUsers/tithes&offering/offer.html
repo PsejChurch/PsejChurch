@@ -193,16 +193,62 @@
                 <div class="content-wrapper">
                     <div class="row">
                         <div class="col-md-12 grid-margin">
-                            <div class="row">
+                            <div class="row align-items-center justify-content-between">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                     <h3 class="font-weight-bold">Welcome Tithes & Offerings!</h3>
                                     <h6 class="font-weight-normal mb-0">
-                                        Your settings are all configured! There are
-                                    </h6>
+                                        Your tithes and offerings have been successfully recorded!
+                                    </h6>                                    
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#tithesModal">
+                                        <i class="ti-plus mr-1"></i> Add Tithes & Offerings
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
+
+                    <div class="modal fade" id="tithesModal" tabindex="-1" role="dialog" aria-labelledby="tithesModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <form id="tithesForm" class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="tithesModalLabel">Add Tithes & Offerings</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="transactionType">Type</label>
+                                        <select class="form-control" id="transactionType" required>
+                                            <option value="revenue">Revenue</option>
+                                            <option value="disbursement">Disbursement</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="titherName">Name</label>
+                                        <input type="text" class="form-control" id="titherName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="titherDescription">Description</label>
+                                        <input type="text" class="form-control" id="titherDescription" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="titherAmount">Amount</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">₱</span>
+                                            </div>
+                                            <input type="number" class="form-control" id="titherAmount" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>                    
+
                     <div class="row">
                         <!-- Revenue Card -->
                         <div class="col-12 col-md-4 mb-4">
@@ -212,8 +258,7 @@
                                     <!-- Search and Filter (Responsive) -->
                                     <div class="form-row mb-3">
                                         <div class="col-12 col-md-6 mb-2 mb-md-0">
-                                            <input type="text" class="form-control" placeholder="Search revenue..."
-                                                id="searchRevenue">
+                                            <input type="text" class="form-control" placeholder="Search revenue..." id="searchRevenue">
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <select class="form-control" id="filterRevenue">
@@ -245,11 +290,12 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="noRevenueMatch" class="no-match" style="display:none; text-align: center;">No matching records found</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    
                         <!-- Disbursement Card -->
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card h-100">
@@ -258,45 +304,44 @@
                                     <!-- Search and Filter -->
                                     <div class="form-row mb-3">
                                         <div class="col-12 col-md-6 mb-2 mb-md-0">
-                                            <input type="text" class="form-control" placeholder="Search disbursement..."
-                                                id="searchDisbursement">
+                                            <input type="text" class="form-control" placeholder="Search disbursement..." id="searchDisbursement">
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <select class="form-control" id="filterDisbursement">
                                                 <option value="">All</option>
-                                                <option value="Paid">Paid</option>
-                                                <option value="Pending">Pending</option>
+                                                <option value="Church Maintenance">Church Maintenance</option>
+                                                <option value="Sound System Repair">Sound System Repair</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-hover mobile-stacked"
-                                            id="disbursementTable">
+                                    <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                                        <table class="table table-striped table-hover mobile-stacked" id="disbursementTable">
                                             <thead>
                                                 <tr>
+                                                    <th>Name</th>
                                                     <th>Description</th>
                                                     <th>Amount</th>
-                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
+                                                    <td data-label="Name">Maintenance Fund</td>
                                                     <td data-label="Description">Church Maintenance</td>
                                                     <td data-label="Amount">₱1,000</td>
-                                                    <td data-label="Status">Paid</td>
                                                 </tr>
                                                 <tr>
+                                                    <td data-label="Name">Repair Fund</td>
                                                     <td data-label="Description">Sound System Repair</td>
                                                     <td data-label="Amount">₱500</td>
-                                                    <td data-label="Status">Paid</td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <div id="noDisbursementMatch" class="no-match" style="display:none; text-align: center;">No matching records found</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                    
                         <!-- Transactions Summary Card -->
                         <div class="col-12 col-md-4 mb-4">
                             <div class="card h-100">
@@ -327,28 +372,24 @@
                                         </div>
                                     </div>
                                     <div class="mt-3 text-right">
-                                        <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#bankDepositModal">
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#bankDepositModal">
                                             <i class="ti-export mr-1"></i> Bank Deposit
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Bank Deposit Modal (Updated) -->
-                    <div class="modal fade" id="bankDepositModal" tabindex="-1" role="dialog"
-                        aria-labelledby="bankDepositModalLabel" aria-hidden="true">
+                    </div>                    
+                    
+                    <!-- Bank Deposit Modal -->
+                    <div class="modal fade" id="bankDepositModal" tabindex="-1" role="dialog" aria-labelledby="bankDepositModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <form id="bankDepositForm" class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Bank Deposit</h5>
-                                    <button type="button" class="close"
-                                        data-dismiss="modal"><span>&times;</span></button>
+                                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                 </div>
                                 <div class="modal-body">
-                                    <!-- Two-column layout (Desktop) -->
                                     <div class="row">
                                         <div class="col-12 col-md-6 mb-3">
                                             <div class="form-group">
@@ -471,87 +512,167 @@
         });
     </script>
 
-    <script>
-        function calculateTotals() {
-            let totalRevenue = 0;
-            document.querySelectorAll("#revenueTable tr").forEach(row => {
-                const amountCell = row.querySelector("td:nth-child(3)");
-                if (amountCell) {
-                    totalRevenue += parseFloat(amountCell.textContent.replace(/[₱,]/g, '')) || 0;
-                }
-            });
+<script>
+    // Function to parse the amount value correctly (convert ₱ to number)
+    function parseAmount(value) {
+        return parseFloat(value.replace(/[₱,]/g, '')) || 0;
+    }
 
-            let totalDisbursement = 0;
-            document.querySelectorAll("#disbursementTable tr").forEach(row => {
-                const amountCell = row.querySelector("td:nth-child(2)");
-                if (amountCell) {
-                    totalDisbursement += parseFloat(amountCell.textContent.replace(/[₱,]/g, '')) || 0;
-                }
-            });
+    // Function to calculate totals for the table (Revenue & Disbursement)
+    function calculateTotals(tableId) {
+        let total = 0;
+        const rows = document.querySelectorAll(`#${tableId} tbody tr`);
 
-            // Get current Cash on Hand from the table
-            let cashOnHandText = document.getElementById("cashOnHand").textContent;
-            let cashOnHand = parseFloat(cashOnHandText.replace(/[₱,]/g, '')) || 0;
+        rows.forEach(row => {
+            const amount = parseAmount(row.cells[row.cells.length - 1].textContent);
+            total += amount;
+        });
 
-            // Update the UI
-            document.getElementById("totalRevenue").textContent = `₱${totalRevenue.toLocaleString()}`;
-            document.getElementById("totalDisbursement").textContent = `₱${totalDisbursement.toLocaleString()}`;
+        return total;
+    }
 
-            let netTotal = totalRevenue + cashOnHand - totalDisbursement;
-            document.getElementById("netTotal").textContent = `₱${netTotal.toLocaleString()}`;
-        }
+    // Function to filter and update table based on search and filter inputs
+    function filterTable(inputId, selectId, tableId, noMatchId) {
+        const input = document.getElementById(inputId).value.toLowerCase();
+        const filter = document.getElementById(selectId).value.toLowerCase();
+        const rows = document.querySelectorAll(`#${tableId} tbody tr`);
+        let rowsFound = false;
 
-        document.addEventListener("DOMContentLoaded", calculateTotals);
-    </script>
+        rows.forEach(row => {
+            const name = row.cells[0]?.textContent.toLowerCase();
+            const desc = row.cells[1]?.textContent.toLowerCase();
+            const matchesSearch = name.includes(input);
+            const matchesFilter = !filter || desc === filter;
 
-    <script>
-        function filterTable(tableId, searchInputId, filterSelectId, columnToFilter) {
-            const table = document.getElementById(tableId);
-            const rows = table.getElementsByTagName("tr");
-            const searchInput = document.getElementById(searchInputId);
-            const filterSelect = document.getElementById(filterSelectId);
-
-            // Create "no data" row
-            let noDataRow = document.createElement("tr");
-            noDataRow.classList.add("no-data");
-            let td = document.createElement("td");
-            td.setAttribute("colspan", "100%");
-            td.classList.add("text-center", "text-muted");
-            td.textContent = "No matching records found.";
-            noDataRow.appendChild(td);
-            table.appendChild(noDataRow); // Add at the end
-            noDataRow.style.display = "none";
-
-            function applyFilters() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const filterValue = filterSelect.value.toLowerCase();
-                let visibleCount = 0;
-
-                for (let row of rows) {
-                    const cells = row.getElementsByTagName("td");
-                    if (cells.length === 0) continue;
-
-                    let matchSearch = Array.from(cells).some(cell =>
-                        cell.textContent.toLowerCase().includes(searchTerm)
-                    );
-                    let matchFilter = !filterValue || cells[columnToFilter]?.textContent.toLowerCase() === filterValue;
-
-                    const shouldShow = matchSearch && matchFilter;
-                    row.style.display = shouldShow ? "" : "none";
-                    if (shouldShow) visibleCount++;
-                }
-
-                noDataRow.style.display = visibleCount === 0 ? "" : "none";
+            if (matchesSearch && matchesFilter) {
+                row.style.display = '';  // Show the row
+                rowsFound = true;
+            } else {
+                row.style.display = 'none';  // Hide the row
             }
+        });
 
-            searchInput.addEventListener("input", applyFilters);
-            filterSelect.addEventListener("change", applyFilters);
+        // Show "No matching records found" if no rows match
+        const noMatchElement = document.getElementById(noMatchId);
+        if (rowsFound) {
+            noMatchElement.style.display = 'none';
+        } else {
+            noMatchElement.style.display = 'block';
         }
+    }
 
-        filterTable("revenueTable", "searchRevenue", "filterRevenue", 1); // Description
-        filterTable("disbursementTable", "searchDisbursement", "filterDisbursement", 2); // Status
-    </script>
+    // Update the transaction summary (totals for Revenue, Disbursement, and Net Total)
+    function updateSummaries() {
+        const totalRevenue = calculateTotals('revenueTable');
+        const totalDisbursement = calculateTotals('disbursementTable');
+        const cashOnHand = 1000; // Sample value for cash on hand
 
+        // Update the text content for totals in the transaction summary
+        document.getElementById('totalRevenue').textContent = `₱${totalRevenue.toLocaleString()}`;
+        document.getElementById('totalDisbursement').textContent = `₱${totalDisbursement.toLocaleString()}`;
+        document.getElementById('cashOnHand').textContent = `₱${cashOnHand.toLocaleString()}`;
+
+        // Calculate and update Net Total
+        const netTotal = totalRevenue - totalDisbursement + cashOnHand;
+        document.getElementById('netTotal').textContent = `₱${netTotal.toLocaleString()}`;
+    }
+
+    // Event listeners for input fields (Search and Filter)
+    document.addEventListener('input', () => {
+        filterTable('searchRevenue', 'filterRevenue', 'revenueTable', 'noRevenueMatch');
+        filterTable('searchDisbursement', 'filterDisbursement', 'disbursementTable', 'noDisbursementMatch');
+        updateSummaries();
+    });
+
+    // Initial page load
+    document.addEventListener('DOMContentLoaded', updateSummaries);
+</script>
+
+<script>
+    // Function to calculate total disbursement
+    function calculateTotalDisbursement() {
+        let total = 0;
+        const rows = document.querySelectorAll("#disbursementTable tbody tr");
+
+        // Loop through all rows and sum the amounts
+        rows.forEach(row => {
+            const amountCell = row.cells[2]; // Assuming amount is in the 3rd column
+            const amount = parseFloat(amountCell.textContent.replace(/[₱,]/g, '')); // Remove currency symbols
+            if (!isNaN(amount)) {
+                total += amount;
+            }
+        });
+
+        // Update the total disbursement display
+        document.getElementById("totalDisbursement").textContent = `₱${total.toLocaleString()}`;
+    }
+
+    // Function to calculate total revenue
+    function calculateTotalRevenue() {
+        let total = 0;
+        const rows = document.querySelectorAll("#revenueTable tbody tr");
+
+        // Loop through all rows and sum the amounts
+        rows.forEach(row => {
+            const amountCell = row.cells[2]; // Assuming amount is in the 3rd column
+            const amount = parseFloat(amountCell.textContent.replace(/[₱,]/g, '')); // Remove currency symbols
+            if (!isNaN(amount)) {
+                total += amount;
+            }
+        });
+
+        // Update the total revenue display
+        document.getElementById("totalRevenue").textContent = `₱${total.toLocaleString()}`;
+    }
+
+    // Event listener for form submit
+    document.getElementById("tithesForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+    
+        const type = document.getElementById("transactionType").value;
+        const name = document.getElementById("titherName").value;
+        const description = document.getElementById("titherDescription").value;
+        const amount = document.getElementById("titherAmount").value;
+
+        console.log("Transaction Type:", type);  // Debug log to check the value of transactionType
+    
+        if (type === "revenue") {
+            const row = `
+                <tr>
+                    <td>${name}</td>
+                    <td>${description}</td>
+                    <td>₱${parseFloat(amount).toLocaleString()}</td>
+                </tr>
+            `;
+            document.getElementById("revenueTable").insertAdjacentHTML("beforeend", row);
+            // Recalculate the total revenue after adding a new row
+            calculateTotalRevenue();
+        } else if (type === "disbursement") {
+            const row = `
+                <tr>
+                    <td>${name}</td> <!-- Added Name column -->
+                    <td>${description}</td>
+                    <td>₱${parseFloat(amount).toLocaleString()}</td>
+                </tr>
+            `;
+            document.getElementById("disbursementTable").insertAdjacentHTML("beforeend", row);
+            // Recalculate the total disbursement after adding a new row
+            calculateTotalDisbursement();
+        } else {
+            console.log("Unknown transaction type:", type);  // Debugging unknown type
+        }
+    
+        // Reset form and close modal
+        e.target.reset();
+        $('#tithesModal').modal('hide');
+    });
+
+    // Initial calculation on page load (if any pre-existing rows are in the table)
+    document.addEventListener('DOMContentLoaded', function() {
+        calculateTotalRevenue();
+        calculateTotalDisbursement();
+    });
+</script>
 
     <!-- plugins:js -->
     <script src="../../../vendors/js/vendor.bundle.base.js"></script>
