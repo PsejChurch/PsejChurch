@@ -30953,4 +30953,43 @@ div.tagsinput span.tag a {
   }
 }
 
+ /* Only affects revenue/disbursement tables on small screens */
+ @media (max-width: 768px) {
+  .mobile-stacked thead {
+      display: none;
+  }
+
+  .mobile-stacked tbody tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 0.5rem;
+  }
+
+  .mobile-stacked tbody td {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+  }
+
+  .mobile-stacked tbody td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      color: #6c757d;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-body .row {
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .modal-body .col-md-6 {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
