@@ -356,7 +356,7 @@
 
                                             <!-- Table -->
                                             <div class="p-2 p-sm-3">
-                                                <div class="table-responsive">
+                                                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
                                                     <table class="table table-striped table-hover">
                                                         <thead>
                                                             <tr>
@@ -402,6 +402,13 @@
                                                                         title="Excellent"></i></td>
                                                             </tr>
                                                         </tbody>
+                                                        <tfoot>
+                                                            <tr id="noResultsMessage" style="display: none; text-align: center;">
+                                                                <td colspan="2" style="padding: 1rem; font-style: italic; color: gray;">
+                                                                    No members found for the selected position.
+                                                                </td>
+                                                            </tr>
+                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>
@@ -501,29 +508,29 @@
         });
     </script>
 
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const positionFilter = document.getElementById('positionFilter');
-        const tableRows = document.querySelectorAll('#memberTableBody tr');
+<script>
+    const positionFilter = document.getElementById('positionFilter');
+    const tableBody = document.getElementById('memberTableBody');
+    const tableRows = tableBody.querySelectorAll('tr');
+    const noResultsMessage = document.getElementById('noResultsMessage');
 
-        function filterTable() {
-            const searchValue = searchInput.value.toLowerCase();
-            const selectedPosition = positionFilter.value.toLowerCase();
+    function filterTable() {
+        const selectedPosition = positionFilter.value.toLowerCase();
+        let hasVisibleRow = false;
 
-            tableRows.forEach(row => {
-                const name = row.children[0].textContent.toLowerCase();
-                const position = row.children[1].textContent.toLowerCase();
-                const matchesSearch = name.includes(searchValue);
-                const matchesPosition = selectedPosition === 'all' || position === selectedPosition;
+        tableRows.forEach(row => {
+            const position = row.children[1].textContent.toLowerCase();
+            const matches = selectedPosition === 'all' || position === selectedPosition;
 
-                row.style.display = (matchesSearch && matchesPosition) ? '' : 'none';
-            });
-        }
+            row.style.display = matches ? '' : 'none';
+            if (matches) hasVisibleRow = true;
+        });
 
-        searchInput.addEventListener('input', filterTable);
-        positionFilter.addEventListener('change', filterTable);
-    </script>
+        noResultsMessage.style.display = hasVisibleRow ? 'none' : '';
+    }
 
+    positionFilter.addEventListener('change', filterTable);
+</script>
 
     <script>
         // Search Function for Member Names

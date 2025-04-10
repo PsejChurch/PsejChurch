@@ -30838,13 +30838,13 @@ div.tagsinput span.tag a {
 }
 
  /* Calendar Container */
-.calendar-header {
+ .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .calendar-month {
@@ -30858,29 +30858,32 @@ div.tagsinput span.tag a {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+  gap: 5px;
 }
 
-/* Day Headers & Cells */
-.calendar-day,
-.calendar-cell {
-  text-align: center;
-  padding: 10px;
-  background-color: #f4f4f4;
-  border-radius: 5px;
-  font-size: 1rem;
-  min-height: 60px;
-}
-
+/* Day Headers */
 .calendar-day {
   font-weight: bold;
+  text-align: center;
   background-color: #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 /* Calendar Cells */
 .calendar-cell {
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 6px;
+  min-height: 90px;
+  position: relative;
+  font-size: 0.95rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .calendar-cell:hover {
@@ -30902,26 +30905,51 @@ div.tagsinput span.tag a {
   background-color: transparent;
 }
 
+/* Event Badge */
+.event-badge {
+  font-size: 10px;
+  margin-top: 4px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .calendar-cell,
   .calendar-day {
-    font-size: 0.9rem;
-    padding: 8px;
-    min-height: 50px;
+    font-size: 0.85rem;
+    padding: 5px;
+    min-height: 70px;
+  }
+
+  .event-badge {
+    font-size: 9px;
   }
 }
 
 @media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
   .calendar-cell,
   .calendar-day {
-    font-size: 0.75rem;
-    padding: 6px;
-    min-height: 40px;
+    font-size: 0.7rem;
+    padding: 4px;
+    min-height: 60px;
   }
 
   .calendar-month {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .event-badge {
+    font-size: 8px;
   }
 }
 
